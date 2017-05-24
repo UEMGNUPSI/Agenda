@@ -28,7 +28,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     FuncionarioDAO funcionarioDAO;
     public FuncionarioView() {
     
-        //Intansciação das váriaves de acesso na classe
+        //Intansciação das váriaves de acesso na classe.
         this.funcionarioDAO = new FuncionarioDAO();
         this.setorDAO = new SetorDAO();  
         this.listaSetor = new ArrayList<>();
