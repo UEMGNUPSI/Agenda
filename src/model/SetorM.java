@@ -12,12 +12,11 @@ package model;
 public class SetorM {
     private int id;
     private String nome;
-    private int ramal;
+    
 
-    public SetorM(int id, String nome, int ramal) {
+    public SetorM(int id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.ramal = ramal;
     }
 
     public SetorM() {
@@ -38,14 +37,4 @@ public class SetorM {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public int getRamal() {
-        return ramal;
-    }
-
-    public void setRamal(int ramal) {
-        this.ramal = ramal;
-    }
-    
-    
 }

@@ -320,7 +320,7 @@ public class ConsultaConvidadoView extends javax.swing.JInternalFrame {
             for (FuncionarioM funcionario : listaFuncionario) {
                 dados[i][0] = funcionario.getNome();
                 dados[i][1] = funcionario.getSetor().getNome();
-                dados[i][2] = String.valueOf(funcionario.getSetor().getRamal());
+                dados[i][2] = funcionario.getRamal();
                 dados[i][3] = funcionario.getDia();
                 dados[i][4] = funcionario.getHorario();
                 i++;
@@ -382,7 +382,7 @@ public class ConsultaConvidadoView extends javax.swing.JInternalFrame {
             for (FuncionarioM funcionario : listaFuncionario) {
                 dados[i][0] = funcionario.getNome();
                 dados[i][1] = funcionario.getSetor().getNome();
-                dados[i][2] = String.valueOf(funcionario.getSetor().getRamal());
+                dados[i][2] = funcionario.getRamal();
                 dados[i][3] = funcionario.getDia();
                 dados[i][4] = funcionario.getHorario();
                 i++;

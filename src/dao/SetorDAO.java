@@ -91,7 +91,7 @@ public class SetorDAO {
         */
         PreparedStatement pst;
         String sql;
-        sql = "insert into setor values (?,?,?)";
+        sql = "insert into setor values (?,?)";
         pst = Conexao.getInstance().prepareStatement(sql); //Conexão.getInstance(), Conexão é a classe para conexão com o banco
         // .getInstance é um método da classe conexão que retorna uma conexão, pra dar um "ok, o banco realizará a operação".
         pst.setInt(1,0);//sempre passa 0, pois é auto increment, ai o banco que vai atribuir valor.
@@ -101,7 +101,6 @@ public class SetorDAO {
         tem diferentes valores cada vez que entrar nesse método, por isso, faremos com que o objeto que entre aqui(já preenchido), 
         atribua seus valores ao comando que será feito no banco de dados, se entrar um objeto de nome: ab ramal: 1,2*/
         pst.setString(2, setor.getNome());  //será passado uma instrução pro banco pra passar 0 no id, ab em nome, e 1,2 em ramal.
-        pst.setInt(3, setor.getRamal());
         pst.execute();
         pst.close();
     }
@@ -121,8 +120,7 @@ public class SetorDAO {
     
     while (rs.next()){
         listaSetor.add(new SetorM(rs.getInt("id"), 
-                                  rs.getString("nome"), 
-                                  rs.getInt("ramal")));
+                                  rs.getString("nome")));
     }
     pst.close();
     return listaSetor;
@@ -142,11 +140,10 @@ public class SetorDAO {
     static public void alterar (SetorM setor) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "update setor set nome=?, ramal=? where id=? ";
+        sql = "update setor set nome=? where id=? ";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, setor.getNome());
-        pst.setInt(2, setor.getRamal());
-        pst.setInt(3, setor.getId());
+        pst.setInt(2, setor.getId());
         pst.execute();
         pst.close();
         
@@ -161,9 +158,7 @@ public class SetorDAO {
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
            set = new SetorM((rs.getInt("id")), 
-                   rs.getString("nome"),
-                   rs.getInt("ramal")
-           );
+                   rs.getString("nome"));
         }
         pst.close();
         return set;
@@ -178,9 +173,7 @@ public class SetorDAO {
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
            set = new SetorM((rs.getInt("id")), 
-                   rs.getString("nome"),
-                   rs.getInt("ramal")
-           );
+                   rs.getString("nome"));
         }
         pst.close();
         return set;
@@ -193,8 +186,7 @@ public class SetorDAO {
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
            listasetor.add(new SetorM((rs.getInt("id")),
-                   rs.getString("nome"),
-                   rs.getInt("ramal"))
+                   rs.getString("nome"))
            );
         }
         pst.close();

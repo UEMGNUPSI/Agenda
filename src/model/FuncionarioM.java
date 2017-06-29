@@ -16,10 +16,11 @@ public class FuncionarioM {
     private String horario;
     private String observacao;
     private SetorM setor;
+    private String ramal;
     private Boolean docente;
     private Boolean inativo;
 
-    public FuncionarioM(int id, String nome, String endereco, String cidadeestado, String telresidencial, String telcomercial1, String telcomercial2, String celular1, String celular2, String celular3, String email, String dia, String horario, String observacao, SetorM setor, Boolean docente, Boolean inativo) {
+    public FuncionarioM(int id, String nome, String endereco, String cidadeestado, String telresidencial, String telcomercial1, String telcomercial2, String celular1, String celular2, String celular3, String email, String dia, String horario, String observacao, SetorM setor, String ramal, Boolean docente, Boolean inativo) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
@@ -35,6 +36,7 @@ public class FuncionarioM {
         this.horario = horario;
         this.observacao = observacao;
         this.setor = setor;
+        this.ramal = ramal;
         this.docente = docente;
         this.inativo = inativo;
     }
@@ -162,6 +164,14 @@ public class FuncionarioM {
         this.setor = setor;
     }
 
+    public String getRamal() {
+        return ramal;
+    }
+
+    public void setRamal(String ramal) {
+        this.ramal = ramal;
+    }
+
     public Boolean getDocente() {
         return docente;
     }
@@ -177,9 +187,5 @@ public class FuncionarioM {
     public void setInativo(Boolean inativo) {
         this.inativo = inativo;
     }
-    
-    
 
- 
-   
 }

@@ -75,7 +75,6 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             for (SetorM setor : listaSetor) {
                 //dados[i][0] = String.valueOf(setor.getId());
                 dados[i][0] = setor.getNome();
-                dados[i][1] = String.valueOf(setor.getRamal());
                 dados[i][2] = String.valueOf(setor.getId());
                 i++;
             }
@@ -363,7 +362,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 //dados[i][0] = String.valueOf(funcionario.getId());
                 dados[i][0] = funcionario.getNome();
                 dados[i][1] = String.valueOf(funcionario.getSetor().getNome());
-                dados[i][2] = String.valueOf(funcionario.getSetor().getRamal());
+                dados[i][2] = funcionario.getRamal();
                 i++;
             }
             String tituloColuna[] = {"Nome", "Setor", "Ramal"};
@@ -600,7 +599,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 PdfPCell colNome = new PdfPCell(pNome);
                 colNome.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pRamal = new Paragraph(""+seto.getRamal(), fnormal);
+                Paragraph pRamal = new Paragraph(""+funcionario.getRamal(), fnormal);
                 pRamal.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colRamal = new PdfPCell(pRamal);
                 colRamal.setHorizontalAlignment(Element.ALIGN_CENTER);

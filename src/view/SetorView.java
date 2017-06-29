@@ -29,7 +29,6 @@ public class SetorView extends javax.swing.JInternalFrame {
         this.setVisible(true);
         atualizarTabelaSetor();
         tfdSetor.setDocument(new LimiteDigitos(64));
-        tfdRamal.setDocument(new LimiteDigitos(11));
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -44,9 +43,7 @@ public class SetorView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         tfdSetor = new javax.swing.JTextField();
-        tfdRamal = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         tfdId = new javax.swing.JTextField();
 
         setClosable(true);
@@ -115,11 +112,7 @@ public class SetorView extends javax.swing.JInternalFrame {
 
         tfdSetor.setEnabled(false);
 
-        tfdRamal.setEnabled(false);
-
         jLabel1.setText("ID");
-
-        jLabel3.setText("Ramal");
 
         tfdId.setEditable(false);
         tfdId.setEnabled(false);
@@ -135,12 +128,10 @@ public class SetorView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(tfdId, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(tfdRamal))
+                        .addGap(0, 421, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -152,12 +143,7 @@ public class SetorView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfdSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfdRamal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addComponent(tfdSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,7 +177,7 @@ public class SetorView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo)
@@ -199,21 +185,20 @@ public class SetorView extends javax.swing.JInternalFrame {
                     .addComponent(btnAlterar)
                     .addComponent(btnCancelar)
                     .addComponent(btnSalvar))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-           if (tfdSetor.getText().isEmpty() || tfdRamal.getText().isEmpty()){
+           if (tfdSetor.getText().isEmpty()){
           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
           tfdSetor.requestFocusInWindow();          
       }
            else if (tfdId.getText().isEmpty()){
           
           setor.setNome(tfdSetor.getText());
-          setor.setRamal(Integer.parseInt(tfdRamal.getText()));
       
       try{
           SetorDAO.salvar(setor);
@@ -234,7 +219,6 @@ public class SetorView extends javax.swing.JInternalFrame {
       else{
            setor.setId(Integer.parseInt(tfdId.getText()));
            setor.setNome(tfdSetor.getText());
-           setor.setRamal(Integer.parseInt(tfdRamal.getText()));
        }
        try{
            SetorDAO.alterar(setor);
@@ -252,7 +236,6 @@ public class SetorView extends javax.swing.JInternalFrame {
     private void tbeSetorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeSetorMouseClicked
       tfdId.setText(tbeSetor.getValueAt(tbeSetor.getSelectedRow(), 0).toString());
       tfdSetor.setText(tbeSetor.getValueAt(tbeSetor.getSelectedRow(), 1).toString());
-      tfdRamal.setText(tbeSetor.getValueAt(tbeSetor.getSelectedRow(), 2).toString());
       prepararSelecaoTabela();
     }//GEN-LAST:event_tbeSetorMouseClicked
 
@@ -309,7 +292,6 @@ public class SetorView extends javax.swing.JInternalFrame {
             for (SetorM setor : listaSetor) {
                 dados[i][0] = String.valueOf(setor.getId());
                 dados[i][1] = setor.getNome();
-                dados[i][2] = String.valueOf(setor.getRamal());
                 i++;
             }
            String tituloColuna[] = {"ID", "Setor", "Ramal"};
@@ -327,7 +309,6 @@ public class SetorView extends javax.swing.JInternalFrame {
 
             tbeSetor.getColumnModel().getColumn(0).setPreferredWidth(25);
             tbeSetor.getColumnModel().getColumn(1).setPreferredWidth(100);
-            tbeSetor.getColumnModel().getColumn(2).setPreferredWidth(50);
             
 
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
@@ -342,17 +323,14 @@ public class SetorView extends javax.swing.JInternalFrame {
    public void limparCamposSetor(){
        tfdId.setText("");
        tfdSetor.setText("");
-       tfdRamal.setText("");
    }
    
    public void ativarCampos(){
        tfdSetor.setEnabled(true);
-       tfdRamal.setEnabled(true);
    }
 
    public void desativarCampos(){
        tfdSetor.setEnabled(false);
-       tfdRamal.setEnabled(false);
    }
    
    public void prepararNovo() {
@@ -398,12 +376,10 @@ public class SetorView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbeSetor;
     private javax.swing.JTextField tfdId;
-    private javax.swing.JTextField tfdRamal;
     private javax.swing.JTextField tfdSetor;
     // End of variables declaration//GEN-END:variables
 }

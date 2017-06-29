@@ -59,7 +59,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     public void atualizaBoxSetor(){
        
         cbxSetor.removeAllItems();
-        cbxSetor.addItem("--Selecione--");
+        cbxSetor.addItem("Selecione");
         try{
             listaSetor = setorDAO.listaTodos();
         }catch(SQLException ex){    
@@ -89,7 +89,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 dados[i][0] = String.valueOf(funcionario.getId());
                 dados[i][1] = funcionario.getNome();
                 dados[i][2] = funcionario.getSetor().getNome();
-                dados[i][3] = String.valueOf(funcionario.getSetor().getRamal());
+                dados[i][3] = funcionario.getRamal();
                 if(funcionario.getDocente() == true){
                 dados[i][4] = String.valueOf("Professor");}
                 else{dados[i][4] = String.valueOf("Funcionário");}
@@ -136,7 +136,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 dados[i][0] = String.valueOf(funcionario.getId());
                 dados[i][1] = funcionario.getNome();
                 dados[i][2] = funcionario.getSetor().getNome();
-                dados[i][3] = String.valueOf(funcionario.getSetor().getRamal());
+                dados[i][3] = funcionario.getRamal();
                 if(funcionario.getDocente() == true){
                 dados[i][4] = String.valueOf("Professor");}
                 else{dados[i][4] = String.valueOf("Funcionário");}
@@ -333,11 +333,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         cbxSetor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxSetor.setEnabled(false);
-        cbxSetor.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxSetorItemStateChanged(evt);
-            }
-        });
 
         jLabel14.setText("Observação");
 
@@ -699,7 +694,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         tfdCelular3.setText(funcionario.getCelular3());
         tfdEmail.setText(funcionario.getEmail());
         cbxSetor.setSelectedItem(tbeFuncionario.getValueAt(tbeFuncionario.getSelectedRow(),2).toString());
-        tfdRamal.setText(tbeFuncionario.getValueAt(tbeFuncionario.getSelectedRow(),3).toString());
+        tfdRamal.setText(funcionario.getRamal());
         tfdDia.setText(funcionario.getDia());
         tfdHorario.setText(funcionario.getHorario());
         taaObservacao.setText(funcionario.getObservacao());
@@ -730,6 +725,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             funcionario.setHorario(tfdHorario.getText());
             funcionario.setObservacao(taaObservacao.getText());
             funcionario.setSetor(pegaSetor());
+            funcionario.setRamal(tfdRamal.getText());
             funcionario.setDocente(cbxDocente.isSelected());
             funcionario.setInativo(cbxInativo.isSelected());
             
@@ -764,6 +760,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             funcionario.setHorario(tfdHorario.getText());
             funcionario.setObservacao(taaObservacao.getText());
             funcionario.setSetor(pegaSetor());
+            funcionario.setRamal(tfdRamal.getText());
             funcionario.setDocente(cbxDocente.isSelected());
             funcionario.setInativo(cbxInativo.isSelected());
         try{
@@ -822,13 +819,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     ativarCampos();
     tfdNome.requestFocusInWindow(); 
     }//GEN-LAST:event_btnAlterarActionPerformed
-
-    //Quando o setor é selecionado, é transcrito para o campo de texto "Ramal"
-    private void cbxSetorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSetorItemStateChanged
-    if(cbxSetor.getSelectedIndex()>=1){
-        tfdRamal.setText(Integer.toString(pegaSetor().getRamal()));
-    }
-    }//GEN-LAST:event_cbxSetorItemStateChanged
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
     listaFuncionario = null;
@@ -998,6 +988,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
        tfdCelular3.setEnabled(true);
        tfdEmail.setEnabled(true);
        cbxSetor.setEnabled(true);
+       tfdRamal.setEnabled(true);
        tfdDia.setEnabled(true);
        tfdHorario.setEnabled(true);
        taaObservacao.setEnabled(true);

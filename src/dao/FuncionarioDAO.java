@@ -158,6 +158,7 @@ public class FuncionarioDAO {
                    rs.getString("horario"),
                    rs.getString("observacao"),
                    setorDAO.busca(rs.getInt("id_setor")),
+                   rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo")));  
            cont ++;
@@ -203,6 +204,7 @@ public class FuncionarioDAO {
                    rs.getString("horario"),
                    rs.getString("observacao"),
                    setorDAO.busca(rs.getInt("id_setor")),
+                   rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo")));  
            cont ++;
@@ -247,6 +249,7 @@ public class FuncionarioDAO {
                    rs.getString("horario"),
                    rs.getString("observacao"),
                    setorDAO.busca(rs.getInt("id_setor")),
+                   rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo")));  
         }
@@ -445,6 +448,7 @@ public class FuncionarioDAO {
                    funcionario.setHorario(rs.getString("horario"));
                    funcionario.setObservacao(rs.getString("observacao"));
                    funcionario.setSetor(SetorDAO.busca(rs.getInt("id_setor")));
+                   funcionario.setRamal(rs.getString("ramal"));
                    funcionario.setDocente(rs.getBoolean("docente"));
                    funcionario.setInativo(rs.getBoolean("inativo"));
            funcionarios.add(funcionario);
@@ -485,6 +489,7 @@ public class FuncionarioDAO {
                    rs.getString("horario"),
                    rs.getString("observacao"),
                    setorDAO.busca(rs.getInt("id_setor")),
+                   rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo"));
                    
@@ -522,6 +527,7 @@ public class FuncionarioDAO {
                  + "horario  = ?, "
                  + "observacao  = ?, "
                  + "id_setor = ?, "
+                 + "ramal = ?, "
                  + "docente  = ?, "
                  + "inativo  = ? "
                 
@@ -541,9 +547,10 @@ public class FuncionarioDAO {
         pst.setString(12, funcionario.getHorario());
         pst.setString(13, funcionario.getObservacao());
         pst.setInt(14, funcionario.getSetor().getId());
-        pst.setBoolean(15, funcionario.getDocente());
-        pst.setBoolean(16, funcionario.getInativo());
-        pst.setInt(17,funcionario.getId());
+        pst.setString(15,funcionario.getRamal());
+        pst.setBoolean(16, funcionario.getDocente());
+        pst.setBoolean(17, funcionario.getInativo());
+        pst.setInt(18,funcionario.getId());
         
          pst.execute();
          pst.close();
@@ -573,6 +580,7 @@ public class FuncionarioDAO {
                    rs.getString("horario"),
                    rs.getString("observacao"),
                    setorDAO.busca(rs.getInt("id_setor")),
+                   rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo")));
                    
@@ -608,6 +616,7 @@ public class FuncionarioDAO {
                    rs.getString("horario"),
                    rs.getString("observacao"),
                    SetorDAO.busca(rs.getInt("id_setor")),
+                   rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo")));
         }

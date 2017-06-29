@@ -574,7 +574,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
             for (FuncionarioM funcionario : listaFuncionario) {
                 dados[i][0] = String.valueOf(funcionario.getId());
                 dados[i][1] = funcionario.getNome();
-                dados[i][2] = String.valueOf(funcionario.getSetor().getRamal());
+                dados[i][2] = funcionario.getRamal();
                 i++;
             }
             String tituloColuna[] = {"Id","Nome", "Ramal"};
@@ -614,7 +614,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
         for (FuncionarioM funcionario : listaFuncionario) {
             dados[i][0] = String.valueOf(funcionario.getId());
             dados[i][1] = funcionario.getNome();
-            dados[i][2] = String.valueOf(funcionario.getSetor().getRamal());
+            dados[i][2] = funcionario.getRamal();
             
             i++;
             
@@ -691,7 +691,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
         
         lblNome.setText(funcionario.getNome());
         lblSetor.setText(funcionario.getSetor().getNome());
-        lblRamal.setText(Integer.toString(funcionario.getSetor().getRamal()));
+        lblRamal.setText(funcionario.getRamal());
         lblCidade.setText(funcionario.getCidadeestado());
         lblTelRes.setText(funcionario.getTelresidencial());
         lblTel1.setText(funcionario.getTelcomercial1().toString());
