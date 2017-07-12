@@ -71,6 +71,7 @@ public class PrincipalView extends javax.swing.JFrame {
         pnlPrincipal = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mmiFuncionario = new javax.swing.JMenuItem();
         mniDepartamento = new javax.swing.JMenuItem();
         mnuConsulta = new javax.swing.JMenu();
@@ -122,6 +123,9 @@ public class PrincipalView extends javax.swing.JFrame {
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuArquivos.setHideActionText(true);
+
+        jMenuItem4.setText("Comércio");
+        mnuArquivos.add(jMenuItem4);
 
         mmiFuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mmiFuncionario.setText("Funcionários");
@@ -353,6 +357,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.Menu menu3;

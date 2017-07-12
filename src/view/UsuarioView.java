@@ -419,8 +419,14 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        preparaAlterar();
-        ativaCampos();
+        String ConfirmarAlt = JOptionPane.showInputDialog(null,"Digite sua senha:");
+        String senhaAlt = tfdSenha.getText();
+        if(ConfirmarAlt.equals(senhaAlt)){
+            preparaAlterar();
+            ativaCampos();
+        }else{
+            JOptionPane.showMessageDialog(null, "Senha Não Confere.");
+        }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

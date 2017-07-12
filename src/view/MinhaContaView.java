@@ -239,9 +239,14 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-    ativaCampos();
-    preparaSalvar();
-    
+        String ConfirmarAlt = JOptionPane.showInputDialog(null,"Digite sua senha:");
+        String senhaAlt = tfdSenha.getText();
+        if(ConfirmarAlt.equals(senhaAlt)){
+           preparaSalvar();
+           ativaCampos();
+        }else{
+           JOptionPane.showMessageDialog(null, "Senha Não Confere.");
+        }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

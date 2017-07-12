@@ -90,6 +90,11 @@
             <Property name="hideActionText" type="boolean" value="true"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Com&#xe9;rcio"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mmiFuncionario">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

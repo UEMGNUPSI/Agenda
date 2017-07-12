@@ -64,6 +64,26 @@ CREATE TABLE IF NOT EXISTS `Agenda`.`Usuario`(
   PRIMARY KEY (`id`)
 );
 
+-- -----------------------------------------------------
+-- Table `Agenda`.`Comercio`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Agenda`.`Comercio` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(90) NULL,
+  `atividade` VARCHAR(150) NULL,
+  `endereco` VARCHAR(64) NULL,
+  `cidade_estado` VARCHAR(64) NULL,
+  `tel_comercial1` VARCHAR(14) NULL,
+  `tel_comercial2` VARCHAR(14) NULL,
+  `celular` VARCHAR(14) NULL,
+  `email` VARCHAR(64) NULL,
+  `dia` VARCHAR(45) NULL,
+  `horario` VARCHAR(90) NULL,
+  `observacao` VARCHAR(150) NULL,
+  PRIMARY KEY (`id`)
+  );
+ 
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
