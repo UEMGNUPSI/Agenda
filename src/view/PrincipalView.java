@@ -71,10 +71,11 @@ public class PrincipalView extends javax.swing.JFrame {
         pnlPrincipal = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         mmiFuncionario = new javax.swing.JMenuItem();
         mniDepartamento = new javax.swing.JMenuItem();
         mnuConsulta = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mnuRelatorio = new javax.swing.JMenu();
         mnuUsuarios = new javax.swing.JMenu();
         mniGerenciarUsuarios = new javax.swing.JMenuItem();
@@ -124,9 +125,6 @@ public class PrincipalView extends javax.swing.JFrame {
         mnuArquivos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuArquivos.setHideActionText(true);
 
-        jMenuItem4.setText("Comércio");
-        mnuArquivos.add(jMenuItem4);
-
         mmiFuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mmiFuncionario.setText("Funcionários");
         mmiFuncionario.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +154,18 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
         jMenuBar2.add(mnuConsulta);
+
+        jMenu1.setText("Comércio");
+
+        jMenuItem4.setText("Comércio");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuBar2.add(jMenu1);
 
         mnuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Relatório48x48.png"))); // NOI18N
         mnuRelatorio.setText("Relatorio");
@@ -343,6 +353,14 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnuRelatorioMouseClicked
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+
+            ComercioView comercio = new ComercioView();
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(comercio);
+            pnlPrincipal.updateUI();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
 
 
 
@@ -351,6 +369,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar2;

@@ -182,15 +182,14 @@ public class ComercioDAO {
 
     
     public List<ComercioM> listaComercio() throws SQLException{     
-    List<ComercioM> listaComercio;
-    listaComercio = new ArrayList<>();
+    List<ComercioM> listacomercio = new ArrayList<>();
     
     sql = "select * from Comercio order by nome";
     pst = Conexao.getInstance().prepareStatement(sql);
     ResultSet rs = pst.executeQuery();
     
     while(rs.next()){
-           listaComercio.add(new ComercioM(
+           listacomercio.add(new ComercioM(
                    rs.getInt("id"),
                    rs.getString("nome"),
                    rs.getString("area_atuante"),
@@ -203,7 +202,6 @@ public class ComercioDAO {
                    rs.getString("observacao")));
         }
     pst.close();
-    return listaComercio;
+    return listacomercio;
     }
-    
 }

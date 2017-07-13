@@ -4,12 +4,14 @@ import java.sql.SQLException;
 import java.util.List;
 import model.ComercioM;
 import dao.ComercioDAO;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import util.LimiteDigitos;
 
 
 public class ComercioView extends javax.swing.JInternalFrame {
@@ -18,18 +20,34 @@ public class ComercioView extends javax.swing.JInternalFrame {
     ComercioDAO comerciodao;
     
     public ComercioView() {
+        //Inicia componentes
         initComponents();
+        this.setVisible(true);
+        
+        //Intansciação das váriaves de acesso na classe.
+        this.listacomercio = new ArrayList<>();
+        
+        //Chamada de Métodos
+        tbeComercio.getTableHeader().setReorderingAllowed(false);
         atualizaTabelaComercio();
+        desativarCampos();
+        
+        //Limita digitos nos campos
+        tfdNome.setDocument(new LimiteDigitos(90));
+        tfdEndereco.setDocument(new LimiteDigitos(64));
+        tfdCidadeEstado.setDocument(new LimiteDigitos(64));
+        tfdEmail.setDocument(new LimiteDigitos(64));
+        taaObservacao.setDocument(new LimiteDigitos(150));
     }
     
-         //Atualiza todos os funcionario para a tabela
-     public void atualizaTabelaComercio(){
+         //Atualiza todos os comercios para a tabela
+    public void atualizaTabelaComercio(){
         comercio = new ComercioM();
         try {
-            listacomercio = comerciodao.listaComercio();
+        listacomercio = comerciodao.listaComercio();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
- 
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        
         }
         
         String dados[][] = new String[listacomercio.size()][5];
@@ -38,12 +56,12 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 dados[i][0] = String.valueOf(comercio.getId());
                 dados[i][1] = comercio.getNome();
                 dados[i][2] = comercio.getEndereco();
-                dados[i][3] = comercio.getCelular();
+                dados[i][3] = comercio.getTelComercial1();
                 dados[i][4] = comercio.getObservacao();
                
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Setor","Ramal", "Cargo", "Status"};
+            String tituloColuna[] = {"ID", "Nome", "Endereço","Telefone", "Observação"};
             DefaultTableModel tabelaComercio = new DefaultTableModel();
             tabelaComercio.setDataVector(dados, tituloColuna);
             tbeComercio.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -57,14 +75,11 @@ public class ComercioView extends javax.swing.JInternalFrame {
             });
 
             tbeComercio.getColumnModel().getColumn(0).setPreferredWidth(10);
-            tbeComercio.getColumnModel().getColumn(1).setPreferredWidth(200);
-            tbeComercio.getColumnModel().getColumn(2).setPreferredWidth(100);
             
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
             tbeComercio.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            tbeComercio.getColumnModel().getColumn(3).setCellRenderer(centralizado);
-            tbeComercio.getColumnModel().getColumn(4).setCellRenderer(centralizado);
+
             tbeComercio.setRowHeight(25);
             tbeComercio.updateUI();
     }
@@ -151,6 +166,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbeComercio = new javax.swing.JTable();
 
+        setClosable(true);
         setMinimumSize(new java.awt.Dimension(38, 94));
         setPreferredSize(new java.awt.Dimension(1276, 605));
 
