@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.ComercioM;
 
 
@@ -115,7 +116,7 @@ public class ComercioDAO {
         String sql;
         ComercioM comercio = null;
         
-        sql = "select * from Funcionario where id = ?";
+        sql = "select * from Comercio where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();

@@ -284,14 +284,14 @@ public class SetorView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
         }
         
-        String dados[][] = new String[listaSetor.size()][3];
+        String dados[][] = new String[listaSetor.size()][2];
             int i = 0;
             for (SetorM setor : listaSetor) {
                 dados[i][0] = String.valueOf(setor.getId());
                 dados[i][1] = setor.getNome();
                 i++;
             }
-           String tituloColuna[] = {"ID", "Setor", "Ramal"};
+           String tituloColuna[] = {"ID", "Setor"};
             DefaultTableModel tabelaSetor = new DefaultTableModel();
             tabelaSetor.setDataVector(dados, tituloColuna);
             tbeSetor.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -305,7 +305,7 @@ public class SetorView extends javax.swing.JInternalFrame {
             });
 
             tbeSetor.getColumnModel().getColumn(0).setPreferredWidth(25);
-            tbeSetor.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tbeSetor.getColumnModel().getColumn(1).setPreferredWidth(300);
             
 
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();

@@ -25,6 +25,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         this.setVisible(true);
         
         //Intansciação das váriaves de acesso na classe.
+        this.comerciodao = new ComercioDAO();
         this.listacomercio = new ArrayList<>();
         
         //Chamada de Métodos
@@ -493,12 +494,12 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -670,6 +671,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpaActionPerformed
 
     private void tbeComercioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeComercioMouseClicked
+        limparCamposComercio();
         comercio = new ComercioM();
 
         tfdId.setText(tbeComercio.getValueAt(tbeComercio.getSelectedRow(),0).toString());

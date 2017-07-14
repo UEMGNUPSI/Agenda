@@ -75,7 +75,8 @@ public class PrincipalView extends javax.swing.JFrame {
         mniDepartamento = new javax.swing.JMenuItem();
         mnuConsulta = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mniComercio = new javax.swing.JMenuItem();
+        mniPesquisaComercio = new javax.swing.JMenuItem();
         mnuRelatorio = new javax.swing.JMenu();
         mnuUsuarios = new javax.swing.JMenu();
         mniGerenciarUsuarios = new javax.swing.JMenuItem();
@@ -156,19 +157,30 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuBar2.add(mnuConsulta);
 
         jMenu1.setText("Comércio");
+        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jMenuItem4.setText("Comércio");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        mniComercio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniComercio.setText("Adicionar");
+        mniComercio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                mniComercioActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu1.add(mniComercio);
+
+        mniPesquisaComercio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        mniPesquisaComercio.setText("Consultar");
+        mniPesquisaComercio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniPesquisaComercioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniPesquisaComercio);
 
         jMenuBar2.add(jMenu1);
 
         mnuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Relatório48x48.png"))); // NOI18N
-        mnuRelatorio.setText("Relatorio");
+        mnuRelatorio.setText("Relatório");
         mnuRelatorio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -353,13 +365,20 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnuRelatorioMouseClicked
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void mniComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniComercioActionPerformed
 
             ComercioView comercio = new ComercioView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(comercio);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_mniComercioActionPerformed
+
+    private void mniPesquisaComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaComercioActionPerformed
+        PesquisaComercioView pesquisacomercio = new PesquisaComercioView();
+        pnlPrincipal.removeAll();
+        pnlPrincipal.add(pesquisacomercio);
+        pnlPrincipal.updateUI();
+    }//GEN-LAST:event_mniPesquisaComercioActionPerformed
 
 
 
@@ -376,7 +395,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.Menu menu3;
@@ -384,9 +402,11 @@ public class PrincipalView extends javax.swing.JFrame {
     private java.awt.MenuBar menuBar1;
     private java.awt.MenuBar menuBar2;
     private javax.swing.JMenuItem mmiFuncionario;
+    private javax.swing.JMenuItem mniComercio;
     private javax.swing.JMenuItem mniDepartamento;
     private javax.swing.JMenuItem mniGerenciarUsuarios;
     private javax.swing.JMenuItem mniMinhaConta;
+    private javax.swing.JMenuItem mniPesquisaComercio;
     private javax.swing.JMenu mnuArquivos;
     private javax.swing.JMenu mnuConsulta;
     private javax.swing.JMenu mnuRelatorio;

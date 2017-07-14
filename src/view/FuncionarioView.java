@@ -667,6 +667,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     
     //Pega valores das colunas e transcreve para os campos de texto
     private void tbeFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeFuncionarioMouseClicked
+        limparCamposFuncionario();
         funcionario = new FuncionarioM();
 
         tfdId.setText(tbeFuncionario.getValueAt(tbeFuncionario.getSelectedRow(),0).toString());
