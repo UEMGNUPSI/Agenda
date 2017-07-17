@@ -21,7 +21,7 @@ import model.SetorM;
 import java.util.logging.Level;
 import util.LimiteDigitos;
 
-public class PesquisaView extends javax.swing.JInternalFrame {
+public class ConsultaView extends javax.swing.JInternalFrame {
 
     FuncionarioM funcionario;
     
@@ -30,7 +30,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
     SetorDAO setorDAO;
     FuncionarioDAO funcionarioDAO;
     
-    public PesquisaView(){
+    public ConsultaView(){
         initComponents();
         
         this.setVisible(true);
@@ -60,7 +60,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
         txtRamal = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cbxSetor = new javax.swing.JComboBox<String>();
+        cbxSetor = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         ckbInativo_Busca = new javax.swing.JCheckBox();
         ckbDocente_Busca = new javax.swing.JCheckBox();
@@ -164,7 +164,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Setor");
 
-        cbxSetor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "NUPSI", "Informática", "Recepção", "Coordenação", "Serviços Gerais", "Administração" }));
+        cbxSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "NUPSI", "Informática", "Recepção", "Coordenação", "Serviços Gerais", "Administração" }));
         cbxSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxSetorActionPerformed(evt);
@@ -529,13 +529,13 @@ public class PesquisaView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(114, 114, 114))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PanelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 11, Short.MAX_VALUE))))
         );
 
         pack();
@@ -553,7 +553,7 @@ public class PesquisaView extends javax.swing.JInternalFrame {
         try{
             listaSetor = setorDAO.listaTodos();
         }catch(SQLException ex){    
-            Logger.getLogger(PesquisaView.class.getClass()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(ConsultaView.class.getClass()).log(Level.SEVERE,null,ex);
         }
          String dados[][] = new String[listaSetor.size()][5];
         for (SetorM setor : listaSetor) {

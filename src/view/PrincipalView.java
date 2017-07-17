@@ -297,7 +297,7 @@ public class PrincipalView extends javax.swing.JFrame {
             
         }else
         {
-            PesquisaView pesquisa = new PesquisaView();
+            ConsultaView pesquisa = new ConsultaView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(pesquisa);
             pnlPrincipal.updateUI();

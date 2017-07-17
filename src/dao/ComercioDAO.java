@@ -179,9 +179,7 @@ public class ComercioDAO {
          pst.execute();
          pst.close();
      }
-    
 
-    
     public List<ComercioM> listaComercio() throws SQLException{     
     List<ComercioM> listacomercio = new ArrayList<>();
     
@@ -204,5 +202,66 @@ public class ComercioDAO {
         }
     pst.close();
     return listacomercio;
+    }
+    
+    static public List<ComercioM> buscaNome(String Nome, String Seguimento) throws SQLException{
+        Conexao c;
+	PreparedStatement ps;
+	ResultSet rs;
+        int cont = 0;
+        
+        boolean whereAdd = false;
+        StringBuffer sb = new StringBuffer("select * from Comercio C");
+        
+        //concatenar nome se preenchido.
+        if (Nome.length() > 0){
+            if (whereAdd == false){
+                sb.append(" WHERE ");
+                whereAdd = true;
+                sb.append("f.nome like ");
+                sb.append("'%" + Nome + "%'");
+            }
+        }
+        //concatenar ramal se preenchido.
+        if (Seguimento.length() > 0){
+            if (whereAdd == false){
+                sb.append(" WHERE ");
+                whereAdd = true;
+            }
+            else
+                sb.append(" AND ");
+            sb.append("area_atuante like ");
+            sb.append("'%" + Seguimento + "%'");
+        }   
+        
+        
+        ps = Conexao.getInstance().prepareStatement(sb.toString());
+        
+        rs = ps.executeQuery(sb.toString());
+        List<ComercioM> listacomercio = new ArrayList<>();
+       while(rs.next()){
+           listacomercio.add(new ComercioM(
+                   rs.getInt("id"),
+                   rs.getString("nome"),
+                   rs.getString("area_atuante"),
+                   rs.getString("endereco"),
+                   rs.getString("cidade_estado"),
+                   rs.getString("tel_comercial1"),
+                   rs.getString("tel_comercial2"),
+                   rs.getString("celular"),
+                   rs.getString("email"),
+                   rs.getString("observacao")));
+        }
+        
+        if(cont == 0){
+            return null;
+        }
+            
+        ps.execute();
+        
+        ps.close();
+        rs.close();
+        
+        return listacomercio;
     }
 }

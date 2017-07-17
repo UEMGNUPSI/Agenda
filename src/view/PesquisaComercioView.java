@@ -37,7 +37,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         PanelInfo.setVisible(false);
         
         txtNome.setDocument(new LimiteDigitos(90));
-        txtRamal.setDocument(new LimiteDigitos(11));
+        txtSeguimento.setDocument(new LimiteDigitos(11));
     }
 
     @SuppressWarnings("unchecked")
@@ -49,10 +49,8 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         PanelBusca = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        txtRamal = new javax.swing.JTextField();
+        txtSeguimento = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        cbxSetor = new javax.swing.JComboBox<>();
         btnBusca = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         PanelInfo = new javax.swing.JPanel();
@@ -78,7 +76,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
-        setTitle("Consulta");
+        setTitle("Consulta Comercio");
         setPreferredSize(new java.awt.Dimension(1230, 630));
 
         tbeConsulta.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,22 +122,13 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
             }
         });
 
-        txtRamal.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSeguimento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtRamalKeyPressed(evt);
+                txtSeguimentoKeyPressed(evt);
             }
         });
 
-        jLabel12.setText("Ramal");
-
-        jLabel11.setText("Setor");
-
-        cbxSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "NUPSI", "Informática", "Recepção", "Coordenação", "Serviços Gerais", "Administração" }));
-        cbxSetor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxSetorActionPerformed(evt);
-            }
-        });
+        jLabel12.setText("Seguimento");
 
         btnBusca.setText("Buscar");
         btnBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -163,47 +152,35 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelBuscaLayout.createSequentialGroup()
-                        .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                        .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)))
+                        .addComponent(txtSeguimento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelBuscaLayout.createSequentialGroup()
                         .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
                             .addComponent(jLabel12)
-                            .addComponent(txtRamal, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(218, 218, 218)
-                        .addComponent(btnBusca, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanelBuscaLayout.setVerticalGroup(
             PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBuscaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel11))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelBuscaLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRamal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBuscaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(41, Short.MAX_VALUE))))
+                    .addComponent(txtSeguimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         PanelInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações"));
@@ -395,7 +372,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
                         .addComponent(PanelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 84, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -478,12 +455,12 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
     
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBuscaActionPerformed
     {//GEN-HEADEREND:event_btnBuscaActionPerformed
-        /*        comercio = new ComercioM();
-        if(txtNome.getText().length() <= 0 && txtRamal.getText().length() <= 0 && cbxSetor.getSelectedItem().toString() == "Todos")
+        comercio = new ComercioM();
+        if(txtNome.getText().length() <= 0 && txtSeguimento.getText().length() <= 0)
         atualizaTabelacomercio();
         else{
         try{
-        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtRamal.getText(), cbxSetor.getSelectedItem().toString());
+        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtSeguimento.getText());
         
         if(listacomercio == null){
         JOptionPane.showMessageDialog( null, "Nenhum contato encontrado!");
@@ -494,7 +471,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         }catch(SQLException ex){
         JOptionPane.showMessageDialog( null, "Erro: "+ex);
         }
-        }*/
+        }
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void tbeConsultaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_tbeConsultaMouseClicked
@@ -527,15 +504,12 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         taaObs.setText(comercio.getObservacao());
     }//GEN-LAST:event_tbeConsultaMouseClicked
 
-    private void cbxSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSetorActionPerformed
-    }//GEN-LAST:event_cbxSetorActionPerformed
-
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimparActionPerformed
     {//GEN-HEADEREND:event_btnLimparActionPerformed
         // Limpar e atualiza
         txtNome.setText("");
-        txtRamal.setText("");
-        cbxSetor.setSelectedItem("Todos");
+        txtSeguimento.setText("");
+
         atualizaTabelacomercio();     
     }//GEN-LAST:event_btnLimparActionPerformed
 
@@ -563,7 +537,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         }*/
     }//GEN-LAST:event_txtNomeKeyPressed
 
-    private void txtRamalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRamalKeyPressed
+    private void txtSeguimentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeguimentoKeyPressed
         /*       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         comercio = null;
         
@@ -585,7 +559,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         }
         }
         }*/
-    }//GEN-LAST:event_txtRamalKeyPressed
+    }//GEN-LAST:event_txtSeguimentoKeyPressed
 
     
 
@@ -595,9 +569,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel PanelObs;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JComboBox<String> cbxSetor;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -620,6 +592,6 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea taaObs;
     private javax.swing.JTable tbeConsulta;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtRamal;
+    private javax.swing.JTextField txtSeguimento;
     // End of variables declaration//GEN-END:variables
 }
