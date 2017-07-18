@@ -204,14 +204,13 @@ public class ComercioDAO {
     return listacomercio;
     }
     
-    static public List<ComercioM> buscaNome(String Nome, String Seguimento) throws SQLException{
-        Conexao c;
+    public List<ComercioM> buscaNome(String Nome, String Seguimento) throws SQLException{
 	PreparedStatement ps;
 	ResultSet rs;
         int cont = 0;
         
         boolean whereAdd = false;
-        StringBuffer sb = new StringBuffer("select * from Comercio C");
+        StringBuffer sb = new StringBuffer("select * from Comercio");
         
         //concatenar nome se preenchido.
         if (Nome.length() > 0){
@@ -222,7 +221,7 @@ public class ComercioDAO {
                 sb.append("'%" + Nome + "%'");
             }
         }
-        //concatenar ramal se preenchido.
+        //concatenar Seguimento se preenchido.
         if (Seguimento.length() > 0){
             if (whereAdd == false){
                 sb.append(" WHERE ");

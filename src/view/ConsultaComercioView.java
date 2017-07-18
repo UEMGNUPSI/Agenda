@@ -19,13 +19,13 @@ import model.ComercioM;
 import java.util.logging.Level;
 import util.LimiteDigitos;
 
-public class PesquisaComercioView extends javax.swing.JInternalFrame {
+public class ConsultaComercioView extends javax.swing.JInternalFrame {
 
     ComercioM comercio;
     List<ComercioM> listacomercio;
     ComercioDAO comerciodao;
     
-    public PesquisaComercioView(){
+    public ConsultaComercioView(){
         initComponents();
         
         this.setVisible(true);
@@ -175,11 +175,12 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSeguimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSeguimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -514,7 +515,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
-        /*        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         comercio = null;
         
         comercio = new ComercioM();
@@ -522,10 +523,10 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         atualizaTabelacomercio();
         else{
         try{
-        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtRamal.getText(), cbxSetor.getSelectedItem().toString());
+        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtSeguimento.getText());
         
         if(listacomercio == null){
-        JOptionPane.showMessageDialog( null, "Nenhum contato encontrado!");
+        JOptionPane.showMessageDialog( null, "Nenhum comercio encontrado!");
         atualizaTabelacomercio();
         }
         else
@@ -534,19 +535,19 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog( null, "Erro: "+ex);
         }
         }
-        }*/
+        }
     }//GEN-LAST:event_txtNomeKeyPressed
 
     private void txtSeguimentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeguimentoKeyPressed
-        /*       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
         comercio = null;
         
         comercio = new ComercioM();
-        if(txtRamal.getText().length() <= 0)
+        if(txtSeguimento.getText().length() <= 0)
         atualizaTabelacomercio();
         else{
         try{
-        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtRamal.getText(), cbxSetor.getSelectedItem().toString(), ckbDocente_Busca.isSelected(), ckbInativo_Busca.isSelected());
+        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtSeguimento.getText());
         
         if(listacomercio == null){
         JOptionPane.showMessageDialog( null, "Nenhum contato encontrado!");
@@ -558,7 +559,7 @@ public class PesquisaComercioView extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog( null, "Erro: "+ex);
         }
         }
-        }*/
+        }
     }//GEN-LAST:event_txtSeguimentoKeyPressed
 
     

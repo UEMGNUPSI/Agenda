@@ -374,7 +374,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_mniComercioActionPerformed
 
     private void mniPesquisaComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaComercioActionPerformed
-        PesquisaComercioView pesquisacomercio = new PesquisaComercioView();
+        ConsultaComercioView pesquisacomercio = new ConsultaComercioView();
         pnlPrincipal.removeAll();
         pnlPrincipal.add(pesquisacomercio);
         pnlPrincipal.updateUI();
