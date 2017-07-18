@@ -705,9 +705,9 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             doc.add(nomeUniversidade);
             doc.add(nomeRelatorio);
             
-            PdfPTable tabela = new PdfPTable(2);
+            PdfPTable tabela = new PdfPTable(5);
             tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
-            tabela.setWidthPercentage(70f);
+            tabela.setWidthPercentage(100f);
             
             
             PdfPCell cabecalhoNome = new PdfPCell(new Paragraph("Nome Comércio", f10));
@@ -718,7 +718,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             cabecalhoSeguimento.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoSeguimento);
             
-            PdfPCell cabecalhoEndereco = new PdfPCell(new Paragraph("Endereço / Cidade",f10));
+            PdfPCell cabecalhoEndereco = new PdfPCell(new Paragraph("Endereço - Cidade/Estado",f10));
             cabecalhoEndereco.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoEndereco);
             
@@ -732,28 +732,28 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             
             tabela.setHeaderRows(1); // linha que sera repetida em todas as paginas.
             
-            for (SetorM seto : listaSetor){
-                Paragraph pNome = new Paragraph(comercio.getNome());
+            for (ComercioM comercio : listaComercio){
+                Paragraph pNome = new Paragraph(comercio.getNome(),fnormal);
                 pNome.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colNome = new PdfPCell(pNome);
                 colNome.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pSeguimento = new Paragraph(comercio.getArea_atuante());
+                Paragraph pSeguimento = new Paragraph(comercio.getArea_atuante(),fnormal);
                 pSeguimento.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colSeguimento = new PdfPCell(pSeguimento);
                 colSeguimento.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pEndereco = new Paragraph(comercio.getEndereco()+" / "+comercio.getCidadeEstado());
+                Paragraph pEndereco = new Paragraph(comercio.getEndereco()+" - "+comercio.getCidadeEstado(),fnormal);
                 pEndereco.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colEndereco = new PdfPCell(pEndereco);
                 colEndereco.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pTelefone1 = new Paragraph(comercio.getTelComercial1());
+                Paragraph pTelefone1 = new Paragraph(comercio.getTelComercial1(),fnormal);
                 pTelefone1.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colTelefone1 = new PdfPCell(pTelefone1);
                 colTelefone1.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pTelefone2 = new Paragraph(comercio.getTelComercial2());
+                Paragraph pTelefone2 = new Paragraph(comercio.getTelComercial2(),fnormal);
                 pTelefone2.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colTelefone2 = new PdfPCell(pTelefone2);
                 colTelefone2.setHorizontalAlignment(Element.ALIGN_CENTER);
