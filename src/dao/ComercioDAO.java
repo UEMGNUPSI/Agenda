@@ -217,7 +217,7 @@ public class ComercioDAO {
             if (whereAdd == false){
                 sb.append(" WHERE ");
                 whereAdd = true;
-                sb.append("f.nome like ");
+                sb.append("nome like ");
                 sb.append("'%" + Nome + "%'");
             }
         }

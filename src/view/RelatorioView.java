@@ -9,8 +9,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import dao.FuncionarioDAO;
-import dao.SetorDAO;
+import dao.*;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,24 +23,35 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import model.FuncionarioM;
-import model.SetorM;
+import model.*;
 
 public class RelatorioView extends javax.swing.JInternalFrame {
     FuncionarioM funcionario = new FuncionarioM();
+    FuncionarioDAO funcionarioDAO;
+    List<FuncionarioM> listaRelatorioFunc;
+    List<FuncionarioM> listaFuncionario;
+    
     SetorM setor;
     SetorDAO setorDAO;
     List<SetorM> listaSetor;
     
+    ComercioM comercio = new ComercioM();
+    ComercioDAO comercioDAO;
+    List<ComercioM> listaComercio;
+    
     Document doc;
-    List<FuncionarioM> listaRelatorioFunc;
-    
-    List<FuncionarioM> listaFuncionario;
-    FuncionarioDAO funcionarioDAO;
-    
+
     public RelatorioView() {
         initComponents();
         this.setVisible(true);
+        
+        listaFuncionario = new ArrayList<>();
+        funcionarioDAO = new FuncionarioDAO();
+        funcionario = new FuncionarioM();
+        
+        listaComercio = new ArrayList<>();
+        comercioDAO = new ComercioDAO();
+        comercio = new ComercioM();
         
         listaSetor = new ArrayList<>();
         setorDAO = new SetorDAO();
@@ -50,6 +60,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         //GroupButton de Tipos.
         buttonGroup1.add(radFuncionarios);
         buttonGroup1.add(radSetores);
+        buttonGroup1.add(radComercio);
         
         //GroupButton de Ordenação.
         buttonGroup2.add(radNome);
@@ -98,6 +109,83 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             tbeRelatorio.setRowHeight(25);
     }
     
+    public void atualizaTabelaFuncionario(){
+        funcionario = new FuncionarioM();
+        
+        String dados[][] = new String[listaFuncionario.size()][3];
+            int i = 0;
+            for (FuncionarioM funcionario : listaFuncionario) {
+                //dados[i][0] = String.valueOf(funcionario.getId());
+                dados[i][0] = funcionario.getNome();
+                dados[i][1] = String.valueOf(funcionario.getSetor().getNome());
+                dados[i][2] = funcionario.getRamal();
+                i++;
+            }
+            String tituloColuna[] = {"Nome", "Setor", "Ramal"};
+            DefaultTableModel tabelaConsulta = new DefaultTableModel();
+            tabelaConsulta.setDataVector(dados, tituloColuna);
+            tbeRelatorio.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false//, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(350);
+            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(150);
+
+            tbeRelatorio.getTableHeader().setReorderingAllowed(false);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tbeRelatorio.getColumnModel().getColumn(1).setCellRenderer(centralizado);
+            tbeRelatorio.setRowHeight(25);
+            tbeRelatorio.updateUI();
+    }
+        
+        
+    public void atualizaTabelaComercio(){
+        comercio = new ComercioM();
+        
+        String dados[][] = new String[listaComercio.size()][3];
+            int i = 0;
+            for (ComercioM comercio : listaComercio) {
+                //dados[i][0] = String.valueOf(funcionario.getId());
+                dados[i][0] = comercio.getNome();
+                dados[i][1] = comercio.getEndereco()+" / "+comercio.getCidadeEstado();
+                dados[i][2] = comercio.getTelComercial1()+" / "+comercio.getTelComercial2();
+                i++;
+            }
+            String tituloColuna[] = {"Nome", "Endereço", "Telefones"};
+            DefaultTableModel tabelaConsulta = new DefaultTableModel();
+            tabelaConsulta.setDataVector(dados, tituloColuna);
+            tbeRelatorio.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(350);
+            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(150);
+            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(150);
+
+            tbeRelatorio.getTableHeader().setReorderingAllowed(false);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tbeRelatorio.getColumnModel().getColumn(1).setCellRenderer(centralizado);
+            tbeRelatorio.setRowHeight(25);
+            tbeRelatorio.updateUI();
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,6 +202,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         pnlTipos = new javax.swing.JPanel();
         radFuncionarios = new javax.swing.JRadioButton();
         radSetores = new javax.swing.JRadioButton();
+        radComercio = new javax.swing.JRadioButton();
         pnlOrdenacao = new javax.swing.JPanel();
         radNome = new javax.swing.JRadioButton();
         radSetor = new javax.swing.JRadioButton();
@@ -190,6 +279,13 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             }
         });
 
+        radComercio.setText("Comércio");
+        radComercio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radComercioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlTiposLayout = new javax.swing.GroupLayout(pnlTipos);
         pnlTipos.setLayout(pnlTiposLayout);
         pnlTiposLayout.setHorizontalGroup(
@@ -198,18 +294,22 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addComponent(radFuncionarios)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(radSetores)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radComercio)
+                .addGap(0, 59, Short.MAX_VALUE))
         );
         pnlTiposLayout.setVerticalGroup(
             pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTiposLayout.createSequentialGroup()
                 .addGroup(pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(radFuncionarios)
-                    .addComponent(radSetores))
+                    .addComponent(radSetores)
+                    .addComponent(radComercio))
                 .addGap(0, 7, Short.MAX_VALUE))
         );
 
         pnlOrdenacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Ordenação"));
+        pnlOrdenacao.setEnabled(false);
         pnlOrdenacao.setPreferredSize(new java.awt.Dimension(176, 50));
 
         radNome.setText("Por Nome");
@@ -244,6 +344,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         );
 
         pnlFiltro.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtros"));
+        pnlFiltro.setEnabled(false);
 
         radTodos.setText("Todos");
         radTodos.setEnabled(false);
@@ -270,7 +371,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addComponent(radNaodocente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(radInativo)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlFiltroLayout.setVerticalGroup(
             pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,15 +400,14 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(PanelBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelBuscaLayout.createSequentialGroup()
-                        .addComponent(pnlTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnlFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 74, Short.MAX_VALUE))
+                        .addComponent(pnlTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelBuscaLayout.createSequentialGroup()
                         .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                         .addComponent(pnlOrdenacao, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -352,45 +452,6 @@ public class RelatorioView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public void atualizaTabelaFuncionario(){
-        funcionario = new FuncionarioM();
-        
-        String dados[][] = new String[listaFuncionario.size()][3];
-            int i = 0;
-            for (FuncionarioM funcionario : listaFuncionario) {
-                //dados[i][0] = String.valueOf(funcionario.getId());
-                dados[i][0] = funcionario.getNome();
-                dados[i][1] = String.valueOf(funcionario.getSetor().getNome());
-                dados[i][2] = funcionario.getRamal();
-                i++;
-            }
-            String tituloColuna[] = {"Nome", "Setor", "Ramal"};
-            DefaultTableModel tabelaConsulta = new DefaultTableModel();
-            tabelaConsulta.setDataVector(dados, tituloColuna);
-            tbeRelatorio.setModel(new DefaultTableModel(dados, tituloColuna) {
-                boolean[] canEdit = new boolean[]{
-                    false, false//, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-                };
-
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            });
-
-            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(350);
-            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(150);
-
-            tbeRelatorio.getTableHeader().setReorderingAllowed(false);
-            
-            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
-            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            tbeRelatorio.getColumnModel().getColumn(1).setCellRenderer(centralizado);
-            tbeRelatorio.setRowHeight(25);
-            tbeRelatorio.updateUI();
-    }
-    
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
         funcionario = new FuncionarioM();
 
@@ -432,6 +493,17 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 //Gera a lista de SETORES ORDENADO
                 listaSetor = setorDAO.ListaSetor();
                 atualizarTabelaSetor();
+                btnRelatorio.setEnabled(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(radComercio.isSelected()){
+            
+            try {
+                //Gera a lista de COMERCIO ORDENADO
+                listaComercio = comercioDAO.listaComercio();
+                atualizaTabelaComercio();
                 btnRelatorio.setEnabled(true);
             } catch (SQLException ex) {
                 Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
@@ -613,7 +685,93 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             Desktop.getDesktop().open(new File(caminho));
 
         doc.close();
-        }// FIM DO RELATORIO DE SETORES.
+        // FIM DO RELATORIO DE SETORES.
+        }
+        else if (radComercio.isSelected()){
+            doc = new Document(PageSize.A4.rotate());
+            // INICIO RELATORIO DE COMERCIO.
+            String caminho = "C:/RelatoriosAgenda/RelatorioComércio.pdf";
+            PdfWriter.getInstance(doc, new FileOutputStream(caminho));
+            doc.open();
+            
+            Paragraph nomeUniversidade = new Paragraph("Universidade do Estado de Minas Gerais",f12);
+            nomeUniversidade.setAlignment(Element.ALIGN_CENTER);
+            nomeUniversidade.setSpacingAfter(10);
+            
+            Paragraph nomeRelatorio = new Paragraph("Relatório de Comércios" ,f12);
+            nomeRelatorio.setAlignment(Element.ALIGN_CENTER);
+            nomeRelatorio.setSpacingAfter(10);
+            
+            doc.add(nomeUniversidade);
+            doc.add(nomeRelatorio);
+            
+            PdfPTable tabela = new PdfPTable(2);
+            tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.setWidthPercentage(70f);
+            
+            
+            PdfPCell cabecalhoNome = new PdfPCell(new Paragraph("Nome Comércio", f10));
+            cabecalhoNome.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoNome);
+
+            PdfPCell cabecalhoSeguimento = new PdfPCell(new Paragraph("Seguimento",f10));
+            cabecalhoSeguimento.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoSeguimento);
+            
+            PdfPCell cabecalhoEndereco = new PdfPCell(new Paragraph("Endereço / Cidade",f10));
+            cabecalhoEndereco.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoEndereco);
+            
+            PdfPCell cabecalhoTelefone1 = new PdfPCell(new Paragraph("Telefone1",f10));
+            cabecalhoTelefone1.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoTelefone1);
+            
+            PdfPCell cabecalhoTelefone2 = new PdfPCell(new Paragraph("Telefone2",f10));
+            cabecalhoTelefone2.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoTelefone2);
+            
+            tabela.setHeaderRows(1); // linha que sera repetida em todas as paginas.
+            
+            for (SetorM seto : listaSetor){
+                Paragraph pNome = new Paragraph(comercio.getNome());
+                pNome.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colNome = new PdfPCell(pNome);
+                colNome.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pSeguimento = new Paragraph(comercio.getArea_atuante());
+                pSeguimento.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colSeguimento = new PdfPCell(pSeguimento);
+                colSeguimento.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pEndereco = new Paragraph(comercio.getEndereco()+" / "+comercio.getCidadeEstado());
+                pEndereco.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colEndereco = new PdfPCell(pEndereco);
+                colEndereco.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pTelefone1 = new Paragraph(comercio.getTelComercial1());
+                pTelefone1.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colTelefone1 = new PdfPCell(pTelefone1);
+                colTelefone1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pTelefone2 = new Paragraph(comercio.getTelComercial2());
+                pTelefone2.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colTelefone2 = new PdfPCell(pTelefone2);
+                colTelefone2.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                tabela.addCell(colNome);
+                tabela.addCell(colSeguimento);
+                tabela.addCell(colEndereco);
+                tabela.addCell(colTelefone1);
+                tabela.addCell(colTelefone2);
+            }
+            doc.add(tabela);
+            
+            JOptionPane.showMessageDialog(null, "Relatório de Setores salvo com sucesso em C:/RelatoriosAgenda/");
+            Desktop.getDesktop().open(new File(caminho));
+
+        doc.close();
+        // FIM DO RELATORIO DE COMERCIO.
+        }
     }
     
     private void radFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radFuncionariosActionPerformed
@@ -626,6 +784,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             radDocente.setEnabled(true);
             radInativo.setEnabled(true);
             radNaodocente.setEnabled(true);
+            pnlOrdenacao.setEnabled(true);
+            pnlFiltro.setEnabled(true);
 
             buttonGroup2.clearSelection();
             buttonGroup3.clearSelection();
@@ -643,6 +803,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             radDocente.setEnabled(false);
             radInativo.setEnabled(false);
             radNaodocente.setEnabled(false);
+            pnlOrdenacao.setEnabled(false);
+            pnlFiltro.setEnabled(false);
             
             buttonGroup2.clearSelection();
             buttonGroup3.clearSelection();
@@ -660,6 +822,26 @@ public class RelatorioView extends javax.swing.JInternalFrame {
      radNome.setSelected(true);
     }//GEN-LAST:event_radFuncionariosMouseClicked
 
+    private void radComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radComercioActionPerformed
+        //Desabilita e limpa os JRadioButtons desnecessarios.
+        if (radComercio.isSelected()){
+            btnRelatorio.setEnabled(false);
+            radNome.setEnabled(false);
+            radSetor.setEnabled(false);
+            radTodos.setEnabled(false);
+            radDocente.setEnabled(false);
+            radInativo.setEnabled(false);
+            radNaodocente.setEnabled(false);
+            pnlOrdenacao.setEnabled(false);
+            pnlFiltro.setEnabled(false);
+            
+            buttonGroup2.clearSelection();
+            buttonGroup3.clearSelection();
+            
+            btnBusca.setEnabled(true);
+        }
+    }//GEN-LAST:event_radComercioActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -674,6 +856,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlFiltro;
     private javax.swing.JPanel pnlOrdenacao;
     private javax.swing.JPanel pnlTipos;
+    private javax.swing.JRadioButton radComercio;
     private javax.swing.JRadioButton radDocente;
     private javax.swing.JRadioButton radFuncionarios;
     private javax.swing.JRadioButton radInativo;
