@@ -121,7 +121,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.setPreferredSize(new java.awt.Dimension(56, 48));
 
-        mnuArquivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/arquivo.png"))); // NOI18N
+        mnuArquivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Arquivo.png"))); // NOI18N
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuArquivos.setHideActionText(true);
@@ -146,7 +146,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuArquivos);
 
-        mnuConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/consulta.png"))); // NOI18N
+        mnuConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Consulta.png"))); // NOI18N
         mnuConsulta.setText("Consulta");
         mnuConsulta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,6 +156,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenuBar2.add(mnuConsulta);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Comercio.png"))); // NOI18N
         jMenu1.setText("Comércio");
         jMenu1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -179,7 +180,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu1);
 
-        mnuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Relatório48x48.png"))); // NOI18N
+        mnuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Relatório.png"))); // NOI18N
         mnuRelatorio.setText("Relatório");
         mnuRelatorio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,27 +190,12 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenuBar2.add(mnuRelatorio);
 
-        mnuUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/usuário.png"))); // NOI18N
+        mnuUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Usuário.png"))); // NOI18N
         mnuUsuarios.setText("Usuários");
         mnuUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        mnuUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnuUsuariosMouseClicked(evt);
-            }
-        });
-        mnuUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuUsuariosActionPerformed(evt);
-            }
-        });
 
         mniGerenciarUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mniGerenciarUsuarios.setText("Gerenciar usários");
-        mniGerenciarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mniGerenciarUsuariosMouseClicked(evt);
-            }
-        });
         mniGerenciarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniGerenciarUsuariosActionPerformed(evt);
@@ -228,17 +214,12 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuUsuarios);
 
-        mnuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/sobre.png"))); // NOI18N
+        mnuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Sobre.png"))); // NOI18N
         mnuSobre.setText("Sobre");
         mnuSobre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuSobre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuSobreMouseClicked(evt);
-            }
-        });
-        mnuSobre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuSobreActionPerformed(evt);
             }
         });
         jMenuBar2.add(mnuSobre);
@@ -305,14 +286,6 @@ public class PrincipalView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mnuConsultaMouseClicked
 
-    private void mnuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuariosActionPerformed
-    
-    }//GEN-LAST:event_mnuUsuariosActionPerformed
-
-    private void mnuUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuUsuariosMouseClicked
-    
-    }//GEN-LAST:event_mnuUsuariosMouseClicked
-
     private void mniGerenciarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniGerenciarUsuariosActionPerformed
         
         if(usuarioAtivo.isAdmin() == true)
@@ -325,10 +298,6 @@ public class PrincipalView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mniGerenciarUsuariosActionPerformed
 
-    private void mniGerenciarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mniGerenciarUsuariosMouseClicked
-    
-    }//GEN-LAST:event_mniGerenciarUsuariosMouseClicked
-
     private void mniMinhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniMinhaContaActionPerformed
         
         if(usuarioAtivo.isAdmin() == true)
@@ -340,10 +309,6 @@ public class PrincipalView extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_mniMinhaContaActionPerformed
-
-    private void mnuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreActionPerformed
-        
-    }//GEN-LAST:event_mnuSobreActionPerformed
 
     private void mnuSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSobreMouseClicked
 
