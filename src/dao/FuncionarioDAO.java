@@ -47,7 +47,7 @@ public class FuncionarioDAO {
             }
             else
                 sb.append(" AND ");
-            sb.append("s.ramal like ");
+            sb.append("f.ramal like ");
             sb.append("'%" + Ramal + "%'");
         }   
         //concatenar setor se preenchido/alterado de todos
@@ -83,6 +83,7 @@ public class FuncionarioDAO {
                    funcionario.setHorario(rs.getString("horario"));
                    funcionario.setObservacao(rs.getString("observacao"));
                    funcionario.setSetor(SetorDAO.busca(rs.getInt("id_setor")));
+                   funcionario.setRamal(rs.getString("ramal"));
                    funcionario.setDocente(rs.getBoolean("docente"));
                    funcionario.setInativo(rs.getBoolean("inativo"));
            funcionarios.add(funcionario);
@@ -296,7 +297,7 @@ public class FuncionarioDAO {
             }
             else
                 sb.append(" AND ");
-            sb.append("s.ramal like ");
+            sb.append("f.ramal like ");
             sb.append("'%" + Ramal + "%'");
         }   
         //concatenar setor se preenchido/alterado de todos
@@ -354,6 +355,7 @@ public class FuncionarioDAO {
                    funcionario.setHorario(rs.getString("horario"));
                    funcionario.setObservacao(rs.getString("observacao"));
                    funcionario.setSetor(SetorDAO.busca(rs.getInt("id_setor")));
+                   funcionario.setRamal(rs.getString("Ramal"));
                    funcionario.setDocente(rs.getBoolean("docente"));
                    funcionario.setInativo(rs.getBoolean("inativo"));
            funcionarios.add(funcionario);
