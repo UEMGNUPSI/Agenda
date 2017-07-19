@@ -77,11 +77,11 @@ public class ConsultaConvidadoView extends javax.swing.JInternalFrame {
         btnLimpar = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        cbxSetor = new javax.swing.JComboBox<String>();
+        cbxSetor = new javax.swing.JComboBox<>();
 
         jPasswordField1.setText("jPasswordField1");
 
-        setTitle("Consulta convidados");
+        setTitle("Consulta Convidados");
         setToolTipText("");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -133,7 +133,7 @@ public class ConsultaConvidadoView extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Setor");
 
-        cbxSetor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "NUPSI", "Informática", "Recepção", "Coordenação", "Serviços Gerais", "Administração" }));
+        cbxSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "NUPSI", "Informática", "Recepção", "Coordenação", "Serviços Gerais", "Administração" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

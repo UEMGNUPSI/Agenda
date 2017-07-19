@@ -166,7 +166,7 @@ public class ComercioDAO {
                  + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, comercio.getNome());
-        pst.setString(2, comercio.getCelular());
+        pst.setString(2, comercio.getArea_atuante());
         pst.setString(3, comercio.getEndereco());
         pst.setString(4, comercio.getCidadeEstado());
         pst.setString(5, comercio.getTelComercial1());

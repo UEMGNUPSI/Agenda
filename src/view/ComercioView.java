@@ -39,6 +39,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         tfdCidadeEstado.setDocument(new LimiteDigitos(64));
         tfdEmail.setDocument(new LimiteDigitos(64));
         taaObservacao.setDocument(new LimiteDigitos(150));
+        tfdbusca.setDocument(new LimiteDigitos(90));
     }
     
          //Atualiza todos os comercios para a tabela
@@ -168,6 +169,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         tbeComercio = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("Cadastrar Comércio");
         setMinimumSize(new java.awt.Dimension(38, 94));
         setPreferredSize(new java.awt.Dimension(1276, 605));
 
@@ -493,9 +495,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

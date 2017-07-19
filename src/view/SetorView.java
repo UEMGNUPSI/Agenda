@@ -47,7 +47,7 @@ public class SetorView extends javax.swing.JInternalFrame {
         tfdId = new javax.swing.JTextField();
 
         setClosable(true);
-        setTitle("Setor");
+        setTitle("Cadastrar Setor");
 
         tbeSetor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,7 +128,7 @@ public class SetorView extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(tfdId, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 421, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,25 +148,24 @@ public class SetorView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,49 +179,46 @@ public class SetorView extends javax.swing.JInternalFrame {
                     .addComponent(btnNovo)
                     .addComponent(btnExcluir)
                     .addComponent(btnAlterar)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnSalvar))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(btnSalvar)
+                    .addComponent(btnCancelar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-           if (tfdSetor.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
-          tfdSetor.requestFocusInWindow();          
-      }
-           else if (tfdId.getText().isEmpty()){
-          
-          setor.setNome(tfdSetor.getText());
+        if (tfdSetor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+            tfdSetor.requestFocusInWindow();          
+        }
+        else if (tfdId.getText().isEmpty()){
+            setor.setNome(tfdSetor.getText());
       
-      try{
-          SetorDAO.salvar(setor);
-          JOptionPane.showMessageDialog(null, "Gravado com sucesso!");   
-          
-          tfdSetor.requestFocusInWindow();
-         }
-      catch (SQLException ex){
-          JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
-      }
-      atualizarTabelaSetor();
-      prepararSalvareCancelar();
-      desativarCampos();
-      limparCamposSetor();
-           }
-          
-    
-      else{
-           setor.setId(Integer.parseInt(tfdId.getText()));
-           setor.setNome(tfdSetor.getText());
-       }
-       try{
-           SetorDAO.alterar(setor);
-           JOptionPane.showMessageDialog(null, "Alterado com sucesso!");  
-       }
-       catch (SQLException ex){
+            try{
+                SetorDAO.salvar(setor);
+                JOptionPane.showMessageDialog(null, "Gravado com sucesso!");   
+                tfdSetor.requestFocusInWindow();
+            }
+            catch (SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            }
+        atualizarTabelaSetor();
+        prepararSalvareCancelar();
+        desativarCampos();
+        limparCamposSetor();
+       }
+        else{
+            setor.setId(Integer.parseInt(tfdId.getText()));
+            setor.setNome(tfdSetor.getText());
+       
+            try{
+                SetorDAO.alterar(setor);
+                JOptionPane.showMessageDialog(null, "Alterado com sucesso!");  
+            }
+            catch (SQLException ex){
+                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            }
         }
        atualizarTabelaSetor();
        prepararSalvareCancelar();

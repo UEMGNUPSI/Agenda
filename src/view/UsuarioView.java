@@ -112,7 +112,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setResizable(true);
-        setTitle("Usuário");
+        setTitle("Cadastrar Usuário");
         setPreferredSize(new java.awt.Dimension(1050, 455));
 
         btnNovo.setText("Novo");
