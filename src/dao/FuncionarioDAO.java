@@ -104,7 +104,7 @@ public class FuncionarioDAO {
     static public void salvar (FuncionarioM funcionario) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "insert into Funcionario values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        sql = "insert into Funcionario values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setString(2, funcionario.getNome());
@@ -121,8 +121,9 @@ public class FuncionarioDAO {
         pst.setString(13, funcionario.getHorario());
         pst.setString(14, funcionario.getObservacao());
         pst.setInt(15, funcionario.getSetor().getId());
-        pst.setBoolean(16, funcionario.getDocente());
-        pst.setBoolean(17, funcionario.getInativo());
+        pst.setString(16, funcionario.getRamal());
+        pst.setBoolean(17, funcionario.getDocente());
+        pst.setBoolean(18, funcionario.getInativo());
          
         pst.execute();
         pst.close();
