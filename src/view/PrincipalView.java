@@ -38,12 +38,12 @@ public class PrincipalView extends javax.swing.JFrame {
              pnlPrincipal.updateUI();
              
         }
-        URL url = this.getClass().getResource("/view/icones/icon.png");
+        URL url = this.getClass().getResource("/view/icones/Icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
         
         //icone da barra superior
-        ImageIcon icone = new ImageIcon("C:/AGENDA/agenda/src/view/icones/icon.png");
+        ImageIcon icone = new ImageIcon("C:/AGENDA/agenda/src/view/icones/Icon.png");
         setIconImage(icone.getImage());
     }
 
