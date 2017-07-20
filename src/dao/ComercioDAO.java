@@ -172,7 +172,7 @@ public class ComercioDAO {
         pst.setString(5, comercio.getTelComercial1());
         pst.setString(6, comercio.getTelComercial2());
         pst.setString(7, comercio.getCelular());
-        pst.setString(8, comercio.getEmail());;
+        pst.setString(8, comercio.getEmail());
         pst.setString(9, comercio.getObservacao());
         pst.setInt(10,comercio.getId());
         

@@ -75,7 +75,6 @@ public class ConsultaComercioView extends javax.swing.JInternalFrame {
         lblEnd = new javax.swing.JLabel();
 
         setClosable(true);
-        setMaximizable(true);
         setTitle("Consulta Comércio");
         setPreferredSize(new java.awt.Dimension(1230, 630));
 
@@ -291,7 +290,7 @@ public class ConsultaComercioView extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel15)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblEnd)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, 0)))
                         .addContainerGap())
                     .addGroup(PanelInfoLayout.createSequentialGroup()
                         .addGroup(PanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
