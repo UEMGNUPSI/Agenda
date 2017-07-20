@@ -34,7 +34,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         desativarCampos();
         
         //Limita digitos nos campos
-        tfdNome.setDocument(new LimiteDigitos(90));
+        tfdNome.setDocument(new LimiteDigitos(50));
         tfdEndereco.setDocument(new LimiteDigitos(64));
         tfdCidadeEstado.setDocument(new LimiteDigitos(64));
         tfdEmail.setDocument(new LimiteDigitos(64));
@@ -77,11 +77,13 @@ public class ComercioView extends javax.swing.JInternalFrame {
             });
 
             tbeComercio.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tbeComercio.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tbeComercio.getColumnModel().getColumn(2).setPreferredWidth(100);
             
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
             tbeComercio.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-
+            tbeComercio.getColumnModel().getColumn(3).setCellRenderer(centralizado);
             tbeComercio.setRowHeight(25);
             tbeComercio.updateUI();
     }
@@ -90,18 +92,18 @@ public class ComercioView extends javax.swing.JInternalFrame {
         comercio = new ComercioM();
         
 
-        String dados[][] = new String[listacomercio.size()][6];
+        String dados[][] = new String[listacomercio.size()][5];
             int i = 0;
             for (ComercioM comercio : listacomercio) {
                 dados[i][0] = String.valueOf(comercio.getId());
                 dados[i][1] = comercio.getNome();
                 dados[i][2] = comercio.getEndereco();
-                dados[i][3] = comercio.getCelular();
+                dados[i][3] = comercio.getTelComercial1();
                 dados[i][4] = comercio.getObservacao();
                
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Setor","Ramal", "Cargo", "Status"};
+            String tituloColuna[] = {"ID", "Nome", "Endereço","Telefone", "Observação"};
             DefaultTableModel tabelaComercio = new DefaultTableModel();
             tabelaComercio.setDataVector(dados, tituloColuna);
             tbeComercio.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -122,7 +124,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
             tbeComercio.getColumnModel().getColumn(0).setCellRenderer(centralizado);
             tbeComercio.getColumnModel().getColumn(3).setCellRenderer(centralizado);
-            tbeComercio.getColumnModel().getColumn(4).setCellRenderer(centralizado);
             tbeComercio.setRowHeight(25);
             tbeComercio.updateUI();
     }
@@ -199,7 +200,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Cidade/Estado ");
 
-        jLabel7.setText("Celular (1) *");
+        jLabel7.setText("Celular (1) ");
 
         tfdNome.setEnabled(false);
 
@@ -219,7 +220,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Observação");
 
-        jLabel5.setText("Tel Comercial (1)");
+        jLabel5.setText("Tel Comercial (1) *");
 
         jLabel6.setText("Tel Comercial (2)");
 
@@ -533,7 +534,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if(tfdNome.getText().isEmpty() || tfdEndereco.getText().isEmpty() || tfdCelular1.getText().isEmpty() ){
+        if(tfdNome.getText().isEmpty() || tfdEndereco.getText().isEmpty() || tfdTelComercial1.getText().equals("(__)____-____") ){
             JOptionPane.showMessageDialog(null, "Preencha todos os obrigatórios !", "erro", JOptionPane.WARNING_MESSAGE);
             tfdNome.requestFocusInWindow();
         }

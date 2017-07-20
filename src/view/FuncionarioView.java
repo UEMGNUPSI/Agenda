@@ -44,14 +44,14 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         atualizaTabelaFuncionario();
         desativarCampos();
         
-        tfdNome.setDocument(new LimiteDigitos(90));
+        tfdNome.setDocument(new LimiteDigitos(50));
         tfdEndereco.setDocument(new LimiteDigitos(64));
         tfdCidadeEstado.setDocument(new LimiteDigitos(64));
         tfdEmail.setDocument(new LimiteDigitos(64));
         tfdDia.setDocument(new LimiteDigitos(45));
         tfdHorario.setDocument(new LimiteDigitos(90));
         taaObservacao.setDocument(new LimiteDigitos(150));
-        tfdbusca.setDocument(new LimiteDigitos(90));
+        tfdbusca.setDocument(new LimiteDigitos(50));
         
         
     }
@@ -543,8 +543,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     
     
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if(tfdNome.getText().isEmpty() || tfdEndereco.getText().isEmpty() || tfdCidadeEstado.getText().isEmpty() || /*tfdTelResidencial.getText() == "(__)____-____"||
-            tfdCelular1.getText()== "(__)9____-____" ||*/tfdEmail.getText().isEmpty() || cbxSetor.getSelectedIndex()==0){
+        if(tfdNome.getText().isEmpty() || tfdEndereco.getText().isEmpty() || tfdCidadeEstado.getText().isEmpty() || tfdTelResidencial.getText().equals("(__)____-____")||
+            tfdCelular1.getText().equals("(__)9____-____")||tfdEmail.getText().isEmpty() || cbxSetor.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(null, "Preencha todos os obrigatórios !", "erro", JOptionPane.WARNING_MESSAGE);
             tfdNome.requestFocusInWindow();       
         }

@@ -10,8 +10,7 @@ import model.ComercioM;
 
 
 public class ComercioDAO {
-    PreparedStatement pst;
-    String sql;
+
     
 
     static public void salvar (ComercioM comercio) throws SQLException{
@@ -161,7 +160,7 @@ public class ComercioDAO {
                  + "tel_comercial2  = ?, "
                  + "celular  = ?, "
                  + "email  = ?, "
-                 + "observacao  = ?, "
+                 + "observacao  = ?"
                 
                  + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -180,7 +179,9 @@ public class ComercioDAO {
          pst.close();
      }
 
-    public List<ComercioM> listaComercio() throws SQLException{     
+    public List<ComercioM> listaComercio() throws SQLException{
+    PreparedStatement pst;
+    String sql;
     List<ComercioM> listacomercio = new ArrayList<>();
     
     sql = "select * from Comercio order by nome";
