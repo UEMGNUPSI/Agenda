@@ -17,6 +17,7 @@ public class SobreView extends javax.swing.JInternalFrame {
     public SobreView() {
         initComponents();
         this.setVisible(true);
+        
     }
 
     /**

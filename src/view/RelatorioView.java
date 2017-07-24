@@ -659,10 +659,6 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             cabecalhoNome.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoNome);
 
-            PdfPCell cabecalhoRamal = new PdfPCell(new Paragraph("Ramal",f10));
-            cabecalhoRamal.setHorizontalAlignment(Element.ALIGN_CENTER);
-            tabela.addCell(cabecalhoRamal);
-            
             tabela.setHeaderRows(1); // linha que sera repetida em todas as paginas.
             
             for (SetorM seto : listaSetor){
@@ -670,14 +666,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 pNome.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colNome = new PdfPCell(pNome);
                 colNome.setHorizontalAlignment(Element.ALIGN_CENTER);
-                
-                Paragraph pRamal = new Paragraph(""+funcionario.getRamal(), fnormal);
-                pRamal.setAlignment(Element.ALIGN_JUSTIFIED);
-                PdfPCell colRamal = new PdfPCell(pRamal);
-                colRamal.setHorizontalAlignment(Element.ALIGN_CENTER);
 
                 tabela.addCell(colNome);
-                tabela.addCell(colRamal);
             }
             doc.add(tabela);
             
