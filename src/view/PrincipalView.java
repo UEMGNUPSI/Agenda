@@ -23,10 +23,7 @@ public class PrincipalView extends javax.swing.JFrame {
         this.setVisible(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.usuarioAtivo = usuario;
-        
-        
-           
-           
+
         if(usuarioAtivo.isAdmin() == false){
              mnuArquivos.setEnabled(false);
              //mnuConsulta.setEnabled(false);
@@ -38,13 +35,11 @@ public class PrincipalView extends javax.swing.JFrame {
              pnlPrincipal.updateUI();
              
         }
-        URL url = this.getClass().getResource("/view/icones/Icon.png");
+
+        //icone da barra superior
+        URL url = this.getClass().getResource("/view/icones/icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
-        
-        //icone da barra superior
-        ImageIcon icone = new ImageIcon("C:/AGENDA/agenda/src/view/icones/Icon.png");
-        setIconImage(icone.getImage());
     }
 
     
@@ -73,10 +68,10 @@ public class PrincipalView extends javax.swing.JFrame {
         mnuArquivos = new javax.swing.JMenu();
         mmiFuncionario = new javax.swing.JMenuItem();
         mniDepartamento = new javax.swing.JMenuItem();
-        mnuConsulta = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        mniComercio = new javax.swing.JMenuItem();
+        mnuConsulta = new javax.swing.JMenu();
         mniPesquisaComercio = new javax.swing.JMenuItem();
+        mniPesquisaFuncionario = new javax.swing.JMenuItem();
         mnuRelatorio = new javax.swing.JMenu();
         mnuUsuarios = new javax.swing.JMenu();
         mniGerenciarUsuarios = new javax.swing.JMenuItem();
@@ -146,39 +141,44 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuArquivos);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Comercio.png"))); // NOI18N
+        jMenu1.setText("Comércio");
+        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu1);
+
         mnuConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Consulta.png"))); // NOI18N
-        mnuConsulta.setText("Consulta");
+        mnuConsulta.setText("Consultas");
         mnuConsulta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         mnuConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuConsultaMouseClicked(evt);
             }
         });
-        jMenuBar2.add(mnuConsulta);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Comercio.png"))); // NOI18N
-        jMenu1.setText("Comércio");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        mniComercio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        mniComercio.setText("Adicionar");
-        mniComercio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mniComercioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mniComercio);
-
-        mniPesquisaComercio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        mniPesquisaComercio.setText("Consultar");
+        mniPesquisaComercio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniPesquisaComercio.setText("Comércios");
         mniPesquisaComercio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniPesquisaComercioActionPerformed(evt);
             }
         });
-        jMenu1.add(mniPesquisaComercio);
+        mnuConsulta.add(mniPesquisaComercio);
 
-        jMenuBar2.add(jMenu1);
+        mniPesquisaFuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniPesquisaFuncionario.setText("Funcionários");
+        mniPesquisaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniPesquisaFuncionarioActionPerformed(evt);
+            }
+        });
+        mnuConsulta.add(mniPesquisaFuncionario);
+
+        jMenuBar2.add(mnuConsulta);
 
         mnuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Relatório.png"))); // NOI18N
         mnuRelatorio.setText("Relatório");
@@ -263,27 +263,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_mniDepartamentoActionPerformed
 
     private void mnuConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuConsultaMouseClicked
-    
-        if(usuarioAtivo.isAdmin() == false)
-        {
-            ConsultaConvidadoView pesquisaConvidado = new ConsultaConvidadoView();
-            pnlPrincipal.add(pesquisaConvidado);
-            pesquisaConvidado.setVisible(true);
-            //pesquisaConvidado.setPosicao();
-            
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(pesquisaConvidado);
-            pnlPrincipal.updateUI();
-           
-            
-        }else
-        {
-            ConsultaView pesquisa = new ConsultaView();
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(pesquisa);
-            pnlPrincipal.updateUI();
-        }
-        
+
     }//GEN-LAST:event_mnuConsultaMouseClicked
 
     private void mniGerenciarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniGerenciarUsuariosActionPerformed
@@ -330,20 +310,42 @@ public class PrincipalView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnuRelatorioMouseClicked
 
-    private void mniComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniComercioActionPerformed
-
-            ComercioView comercio = new ComercioView();
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(comercio);
-            pnlPrincipal.updateUI();
-    }//GEN-LAST:event_mniComercioActionPerformed
-
     private void mniPesquisaComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaComercioActionPerformed
         ConsultaComercioView pesquisacomercio = new ConsultaComercioView();
         pnlPrincipal.removeAll();
         pnlPrincipal.add(pesquisacomercio);
         pnlPrincipal.updateUI();
     }//GEN-LAST:event_mniPesquisaComercioActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+            ComercioView comercio = new ComercioView();
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(comercio);
+            pnlPrincipal.updateUI();
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void mniPesquisaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaFuncionarioActionPerformed
+
+        if(usuarioAtivo.isAdmin() == false)
+        {
+            ConsultaConvidadoView pesquisaConvidado = new ConsultaConvidadoView();
+            pnlPrincipal.add(pesquisaConvidado);
+            pesquisaConvidado.setVisible(true);
+            pesquisaConvidado.setPosicao();
+            
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(pesquisaConvidado);
+            pnlPrincipal.updateUI();
+           
+            
+        }else
+        {
+            ConsultaView pesquisa = new ConsultaView();
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(pesquisa);
+            pnlPrincipal.updateUI();
+        }
+    }//GEN-LAST:event_mniPesquisaFuncionarioActionPerformed
 
 
 
@@ -367,11 +369,11 @@ public class PrincipalView extends javax.swing.JFrame {
     private java.awt.MenuBar menuBar1;
     private java.awt.MenuBar menuBar2;
     private javax.swing.JMenuItem mmiFuncionario;
-    private javax.swing.JMenuItem mniComercio;
     private javax.swing.JMenuItem mniDepartamento;
     private javax.swing.JMenuItem mniGerenciarUsuarios;
     private javax.swing.JMenuItem mniMinhaConta;
     private javax.swing.JMenuItem mniPesquisaComercio;
+    private javax.swing.JMenuItem mniPesquisaFuncionario;
     private javax.swing.JMenu mnuArquivos;
     private javax.swing.JMenu mnuConsulta;
     private javax.swing.JMenu mnuRelatorio;

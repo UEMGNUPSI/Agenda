@@ -1,6 +1,9 @@
 package view;
 
 import dao.UsuarioDAO;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         tfdUsuario.setDocument(new LimiteDigitos(20));
         tfdSenha.setDocument(new LimiteDigitos(20));
         tfdConfirmaSenha.setDocument(new LimiteDigitos(20));
-        
+
     }
     
     
