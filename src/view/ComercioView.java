@@ -35,6 +35,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         
         //Limita digitos nos campos
         tfdNome.setDocument(new LimiteDigitos(50));
+        tfdAreaAtuante.setDocument(new LimiteDigitos(50));
         tfdEndereco.setDocument(new LimiteDigitos(64));
         tfdCidadeEstado.setDocument(new LimiteDigitos(64));
         tfdEmail.setDocument(new LimiteDigitos(64));

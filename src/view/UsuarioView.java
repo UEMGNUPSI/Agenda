@@ -1,4 +1,3 @@
-
 package view;
 
 import dao.UsuarioDAO;
@@ -462,7 +461,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
        preparaSelecaoTabela();
     }//GEN-LAST:event_tbeUsuarioMouseClicked
 
-            // INÍCIO MÉTODOS DE CONTROLE DE BOTÕES
+    // INÍCIO MÉTODOS DE CONTROLE DE BOTÕES
     
     public void preparaSalvareCancelar() {
         btnNovo.setEnabled(true);

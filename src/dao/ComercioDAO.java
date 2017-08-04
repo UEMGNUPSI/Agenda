@@ -211,7 +211,7 @@ public class ComercioDAO {
         int cont = 0;
         
         boolean whereAdd = false;
-        StringBuffer sb = new StringBuffer("select * from Comercio");
+        StringBuffer sb = new StringBuffer("select * from Agenda.Comercio");
         
         //concatenar nome se preenchido.
         if (Nome.length() > 0){
@@ -251,6 +251,7 @@ public class ComercioDAO {
                    rs.getString("celular"),
                    rs.getString("email"),
                    rs.getString("observacao")));
+           cont++;
         }
         
         if(cont == 0){

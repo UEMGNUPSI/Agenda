@@ -52,6 +52,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         tfdHorario.setDocument(new LimiteDigitos(90));
         taaObservacao.setDocument(new LimiteDigitos(150));
         tfdbusca.setDocument(new LimiteDigitos(50));
+        tfdRamal.setDocument(new LimiteDigitos(15));
         
         
     }
@@ -537,6 +538,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         tfdDia.setText(funcionario.getDia());
         tfdHorario.setText(funcionario.getHorario());
         taaObservacao.setText(funcionario.getObservacao());
+        cbxDocente.setSelected(funcionario.getDocente());
+        cbxInativo.setSelected(funcionario.getInativo());
         btnAlterar.setEnabled(true);
         btnExcluir.setEnabled(true);
     }//GEN-LAST:event_tbeFuncionarioMouseClicked
@@ -584,6 +587,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         }
         else{
             //Salva tudo que foi alterado nos campos de texto para o objeto e salva no banco de dados
+            funcionario.setDocente(false);
+            funcionario.setInativo(false);
             funcionario.setId(Integer.parseInt(tfdId.getText()));
             funcionario.setNome(tfdNome.getText());
             funcionario.setEndereco(tfdEndereco.getText());

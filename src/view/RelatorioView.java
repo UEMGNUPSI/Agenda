@@ -69,8 +69,9 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         //GroupButton de Filtros.
         buttonGroup3.add(radTodos);
         buttonGroup3.add(radDocente);
-        buttonGroup3.add(radInativo);
         buttonGroup3.add(radNaodocente);
+        buttonGroup3.add(radInativo);
+        
     }
 
     public void atualizarTabelaSetor(){

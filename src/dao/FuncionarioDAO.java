@@ -416,7 +416,7 @@ public class FuncionarioDAO {
                     sb.append (" WHERE ");
                 
                 sb.append("f.docente = ");
-                sb.append(naodocente);
+                sb.append(false);
             }
             
             //verificação em qual dos dois tipos os funcionarios vão ser ordenados

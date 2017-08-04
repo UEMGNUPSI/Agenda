@@ -454,21 +454,21 @@ public class ConsultaComercioView extends javax.swing.JInternalFrame {
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBuscaActionPerformed
     {//GEN-HEADEREND:event_btnBuscaActionPerformed
         comercio = new ComercioM();
-        if(txtNome.getText().length() <= 0 && txtSeguimento.getText().length() <= 0)
-        atualizaTabelacomercio();
-        else{
-        try{
-        listacomercio = comerciodao.buscaNome(txtNome.getText(), txtSeguimento.getText());
-        
-        if(listacomercio == null){
-        JOptionPane.showMessageDialog( null, "Nenhum contato encontrado!");
-        atualizaTabelacomercio();
-        }
-        else
-        atualizaTabelaBusca();
-        }catch(SQLException ex){
-        JOptionPane.showMessageDialog( null, "Erro: "+ex);
-        }
+        if(txtNome.getText().length() <= 0 && txtSeguimento.getText().length() <= 0){
+            atualizaTabelacomercio();   
+        }else{
+                try{
+                listacomercio = comerciodao.buscaNome(txtNome.getText(), txtSeguimento.getText());
+
+                if(listacomercio == null){
+                JOptionPane.showMessageDialog( null, "Nenhum Comercio Encontrado!");
+                atualizaTabelacomercio();
+                }
+                else
+                atualizaTabelaBusca();
+                }catch(SQLException ex){
+                JOptionPane.showMessageDialog( null, "Erro: "+ex);
+                }
         }
     }//GEN-LAST:event_btnBuscaActionPerformed
 
