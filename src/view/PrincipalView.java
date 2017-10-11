@@ -29,11 +29,9 @@ public class PrincipalView extends javax.swing.JFrame {
              //mnuConsulta.setEnabled(false);
              mnuRelatorio.setEnabled(false);
              mnuUsuarios.setEnabled(false);
-             ConsultaConvidadoView consulta = new ConsultaConvidadoView();
+             mnuComercio.setEnabled(false);
              pnlPrincipal.removeAll();
-             pnlPrincipal.add(consulta);
              pnlPrincipal.updateUI();
-             
         }
 
         //icone da barra superior
@@ -68,7 +66,7 @@ public class PrincipalView extends javax.swing.JFrame {
         mnuArquivos = new javax.swing.JMenu();
         mmiFuncionario = new javax.swing.JMenuItem();
         mniDepartamento = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        mnuComercio = new javax.swing.JMenu();
         mnuConsulta = new javax.swing.JMenu();
         mniPesquisaComercio = new javax.swing.JMenuItem();
         mniPesquisaFuncionario = new javax.swing.JMenuItem();
@@ -141,15 +139,15 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuArquivos);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Comercio.png"))); // NOI18N
-        jMenu1.setText("Comércio");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnuComercio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Comercio.png"))); // NOI18N
+        mnuComercio.setText("Comércio");
+        mnuComercio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuComercio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                mnuComercioMouseClicked(evt);
             }
         });
-        jMenuBar2.add(jMenu1);
+        jMenuBar2.add(mnuComercio);
 
         mnuConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Consulta.png"))); // NOI18N
         mnuConsulta.setText("Consultas");
@@ -317,33 +315,35 @@ public class PrincipalView extends javax.swing.JFrame {
         pnlPrincipal.updateUI();
     }//GEN-LAST:event_mniPesquisaComercioActionPerformed
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+    private void mnuComercioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuComercioMouseClicked
             ComercioView comercio = new ComercioView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(comercio);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_jMenu1MouseClicked
+            comercio.setLocation(pnlPrincipal.getWidth()/2 - comercio.getWidth()/2,pnlPrincipal.getHeight()/2 - comercio.getHeight()/2);
+    }//GEN-LAST:event_mnuComercioMouseClicked
 
     private void mniPesquisaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaFuncionarioActionPerformed
 
-        if(usuarioAtivo.isAdmin() == false)
-        {
-            ConsultaConvidadoView pesquisaConvidado = new ConsultaConvidadoView();
-            pnlPrincipal.add(pesquisaConvidado);
-            pesquisaConvidado.setVisible(true);
-            pesquisaConvidado.setPosicao();
-            
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(pesquisaConvidado);
-            pnlPrincipal.updateUI();
-           
-            
-        }else
+        if(usuarioAtivo.isAdmin() == true)
         {
             ConsultaView pesquisa = new ConsultaView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(pesquisa);
             pnlPrincipal.updateUI();
+
+        }else
+        {
+            
+            ConsultaConvidadoView pesquisaConvidado = new ConsultaConvidadoView();
+            pnlPrincipal.add(pesquisaConvidado);
+            pesquisaConvidado.setVisible(true);
+            pesquisaConvidado.setLocation(pnlPrincipal.getWidth()/2 - pesquisaConvidado.getWidth()/2,pnlPrincipal.getHeight()/2 - pesquisaConvidado.getHeight()/2);
+            
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(pesquisaConvidado);
+            pnlPrincipal.updateUI();
+            
         }
     }//GEN-LAST:event_mniPesquisaFuncionarioActionPerformed
 
@@ -355,7 +355,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar2;
@@ -375,6 +374,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem mniPesquisaComercio;
     private javax.swing.JMenuItem mniPesquisaFuncionario;
     private javax.swing.JMenu mnuArquivos;
+    private javax.swing.JMenu mnuComercio;
     private javax.swing.JMenu mnuConsulta;
     private javax.swing.JMenu mnuRelatorio;
     private javax.swing.JMenu mnuSobre;
