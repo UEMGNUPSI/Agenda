@@ -1,12 +1,12 @@
 package view;
 
-import com.sun.istack.internal.logging.Logger;
 import dao.FuncionarioDAO;
 import dao.SetorDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -62,11 +62,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
        
         cbxSetor.removeAllItems();
         cbxSetor.addItem("Selecione");
-        try{
+        
+        try {
             listaSetor = setorDAO.listaTodos();
-        }catch(SQLException ex){    
-            Logger.getLogger(FuncionarioView.class.getClass()).log(Level.SEVERE,null,ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
          String dados[][] = new String[listaSetor.size()][5];
         for (SetorM setor : listaSetor) {
             cbxSetor.addItem(setor.getNome());
@@ -756,7 +758,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 return setorDAO.buscaNome(cbxSetor.getSelectedItem().toString());
             }
         }catch(SQLException ex){
-            Logger.getLogger(FuncionarioView.class.getClass()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE,null,ex);
         }
         return null;
     }

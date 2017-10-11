@@ -1,6 +1,5 @@
 package view;
 
-import com.sun.istack.internal.logging.Logger;
 import dao.ComercioDAO;
 import java.awt.Frame;
 import static java.awt.Frame.MAXIMIZED_BOTH;
@@ -17,6 +16,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import model.ComercioM;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.LimiteDigitos;
 
 public class ConsultaComercioView extends javax.swing.JInternalFrame {

@@ -1,6 +1,6 @@
 package view;
 
-import com.sun.istack.internal.logging.Logger;
+
 import dao.FuncionarioDAO;
 import dao.SetorDAO;
 import java.awt.Frame;
@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import model.FuncionarioM;
 import model.SetorM;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.LimiteDigitos;
 
 public class ConsultaView extends javax.swing.JInternalFrame {
@@ -582,7 +583,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         try{
             listaSetor = setorDAO.listaTodos();
         }catch(SQLException ex){    
-            Logger.getLogger(ConsultaView.class.getClass()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(ConsultaView.class.getName()).log(Level.SEVERE,null,ex);
         }
          String dados[][] = new String[listaSetor.size()][5];
         for (SetorM setor : listaSetor) {

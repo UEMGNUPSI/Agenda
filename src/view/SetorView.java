@@ -1,11 +1,12 @@
 package view;
 
-import com.sun.istack.internal.logging.Logger;
+
 import dao.SetorDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
