@@ -12,6 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicMenuItemUI;
+import javax.swing.plaf.basic.BasicMenuUI;
 import model.UsuarioM;
 
 public class PrincipalView extends javax.swing.JFrame {
@@ -33,7 +35,6 @@ public class PrincipalView extends javax.swing.JFrame {
              pnlPrincipal.removeAll();
              pnlPrincipal.updateUI();
         }
-
         //icone da barra superior
         URL url = this.getClass().getResource("/view/icones/icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
@@ -101,6 +102,8 @@ public class PrincipalView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Agenda");
 
+        pnlPrincipal.setBackground(new java.awt.Color(249, 249, 249));
+
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
         pnlPrincipalLayout.setHorizontalGroup(
@@ -109,18 +112,28 @@ public class PrincipalView extends javax.swing.JFrame {
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
+            .addGap(0, 492, Short.MAX_VALUE)
         );
 
-        jMenuBar2.setPreferredSize(new java.awt.Dimension(56, 48));
+        jMenuBar2.setBackground(new java.awt.Color(226, 226, 226));
+        jMenuBar2.setBorderPainted(false);
+        jMenuBar2.setPreferredSize(new java.awt.Dimension(56, 70));
 
+        mnuArquivos.setBackground(new java.awt.Color(40, 102, 227));
+        mnuArquivos.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 9, 0, 9));
+        mnuArquivos.setForeground(new java.awt.Color(34, 34, 34));
         mnuArquivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Arquivo.png"))); // NOI18N
         mnuArquivos.setText("Arquivos");
-        mnuArquivos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuArquivos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mnuArquivos.setHideActionText(true);
 
-        mmiFuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mmiFuncionario.setBackground(new java.awt.Color(242, 242, 242));
+        mmiFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mmiFuncionario.setForeground(new java.awt.Color(34, 34, 34));
         mmiFuncionario.setText("Funcionários");
+        mmiFuncionario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 9, 1, 1));
+        mmiFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mmiFuncionario.setPreferredSize(new java.awt.Dimension(141, 26));
         mmiFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mmiFuncionarioActionPerformed(evt);
@@ -128,8 +141,13 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         mnuArquivos.add(mmiFuncionario);
 
-        mniDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniDepartamento.setBackground(new java.awt.Color(242, 242, 242));
+        mniDepartamento.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mniDepartamento.setForeground(new java.awt.Color(34, 34, 34));
         mniDepartamento.setText("Setores");
+        mniDepartamento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 9, 1, 1));
+        mniDepartamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mniDepartamento.setPreferredSize(new java.awt.Dimension(141, 26));
         mniDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniDepartamentoActionPerformed(evt);
@@ -139,9 +157,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuArquivos);
 
+        mnuComercio.setBackground(new java.awt.Color(40, 102, 227));
+        mnuComercio.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 9, 0, 9));
+        mnuComercio.setForeground(new java.awt.Color(34, 34, 34));
         mnuComercio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Comercio.png"))); // NOI18N
         mnuComercio.setText("Comércio");
-        mnuComercio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuComercio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuComercio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mnuComercio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuComercioMouseClicked(evt);
@@ -149,17 +171,25 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenuBar2.add(mnuComercio);
 
+        mnuConsulta.setBackground(new java.awt.Color(40, 102, 227));
+        mnuConsulta.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 9, 0, 9));
+        mnuConsulta.setForeground(new java.awt.Color(34, 34, 34));
         mnuConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Consulta.png"))); // NOI18N
         mnuConsulta.setText("Consultas");
-        mnuConsulta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuConsulta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mnuConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuConsultaMouseClicked(evt);
             }
         });
 
-        mniPesquisaComercio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniPesquisaComercio.setBackground(new java.awt.Color(242, 242, 242));
+        mniPesquisaComercio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mniPesquisaComercio.setForeground(new java.awt.Color(34, 34, 34));
         mniPesquisaComercio.setText("Comércios");
+        mniPesquisaComercio.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 9, 1, 1));
+        mniPesquisaComercio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mniPesquisaComercio.setPreferredSize(new java.awt.Dimension(147, 26));
         mniPesquisaComercio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniPesquisaComercioActionPerformed(evt);
@@ -167,8 +197,13 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         mnuConsulta.add(mniPesquisaComercio);
 
-        mniPesquisaFuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniPesquisaFuncionario.setBackground(new java.awt.Color(242, 242, 242));
+        mniPesquisaFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mniPesquisaFuncionario.setForeground(new java.awt.Color(34, 34, 34));
         mniPesquisaFuncionario.setText("Funcionários");
+        mniPesquisaFuncionario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 9, 1, 1));
+        mniPesquisaFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mniPesquisaFuncionario.setPreferredSize(new java.awt.Dimension(147, 26));
         mniPesquisaFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniPesquisaFuncionarioActionPerformed(evt);
@@ -178,9 +213,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuConsulta);
 
+        mnuRelatorio.setBackground(new java.awt.Color(40, 102, 227));
+        mnuRelatorio.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 9, 0, 9));
+        mnuRelatorio.setForeground(new java.awt.Color(34, 34, 34));
         mnuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Relatório.png"))); // NOI18N
         mnuRelatorio.setText("Relatório");
-        mnuRelatorio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mnuRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuRelatorioMouseClicked(evt);
@@ -188,12 +227,20 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenuBar2.add(mnuRelatorio);
 
+        mnuUsuarios.setBackground(new java.awt.Color(40, 102, 227));
+        mnuUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 9, 0, 9));
+        mnuUsuarios.setForeground(new java.awt.Color(34, 34, 34));
         mnuUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Usuário.png"))); // NOI18N
         mnuUsuarios.setText("Usuários");
-        mnuUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuUsuarios.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        mniGerenciarUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniGerenciarUsuarios.setBackground(new java.awt.Color(242, 242, 242));
+        mniGerenciarUsuarios.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mniGerenciarUsuarios.setForeground(new java.awt.Color(34, 34, 34));
         mniGerenciarUsuarios.setText("Gerenciar usários");
+        mniGerenciarUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 1));
+        mniGerenciarUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mniGerenciarUsuarios.setPreferredSize(new java.awt.Dimension(139, 26));
         mniGerenciarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniGerenciarUsuariosActionPerformed(evt);
@@ -201,8 +248,13 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         mnuUsuarios.add(mniGerenciarUsuarios);
 
-        mniMinhaConta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mniMinhaConta.setBackground(new java.awt.Color(242, 242, 242));
+        mniMinhaConta.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mniMinhaConta.setForeground(new java.awt.Color(34, 34, 34));
         mniMinhaConta.setText("Minha conta");
+        mniMinhaConta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 4, 1, 1));
+        mniMinhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mniMinhaConta.setPreferredSize(new java.awt.Dimension(139, 26));
         mniMinhaConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniMinhaContaActionPerformed(evt);
@@ -212,9 +264,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(mnuUsuarios);
 
+        mnuSobre.setBackground(new java.awt.Color(40, 102, 227));
+        mnuSobre.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 9, 0, 9));
+        mnuSobre.setForeground(new java.awt.Color(34, 34, 34));
         mnuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icones/Icon-Sobre.png"))); // NOI18N
         mnuSobre.setText("Sobre");
-        mnuSobre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        mnuSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuSobre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mnuSobre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuSobreMouseClicked(evt);
