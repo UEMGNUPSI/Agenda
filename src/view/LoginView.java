@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.net.URL;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicButtonUI;
 import model.UsuarioM;
 import util.LimiteDigitos;
 
@@ -32,12 +33,15 @@ public class LoginView extends javax.swing.JFrame {
         
         this.tfdUsuario.requestFocus();
         usuarioDAO = new UsuarioDAO();
-       
+        
+        btnEntrar.setUI(new BasicButtonUI());
+        btnConvidado.setUI(new BasicButtonUI());
+        
         
         URL url = this.getClass().getResource("/view/icones/icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
-         tfdUsuario.setDocument(new LimiteDigitos(20));
+        tfdUsuario.setDocument(new LimiteDigitos(20));
         tfdSenha.setDocument(new LimiteDigitos(20));
         
     }
@@ -51,24 +55,37 @@ public class LoginView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnEntrar = new javax.swing.JButton();
         tfdSenha = new javax.swing.JPasswordField();
         tfdUsuario = new javax.swing.JTextField();
-        btnconvidado = new javax.swing.JButton();
+        btnConvidado = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(244, 244, 244));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         jLabel1.setText("Usuário");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         jLabel2.setText("Senha");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
-        btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEntrar.setBackground(new java.awt.Color(165, 214, 168));
+        btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(61, 100, 63));
         btnEntrar.setText("Entrar");
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
@@ -79,74 +96,69 @@ public class LoginView extends javax.swing.JFrame {
                 btnEntrarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 90, -1));
 
+        tfdSenha.setBackground(new java.awt.Color(250, 250, 250));
+        tfdSenha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tfdSenha.setForeground(new java.awt.Color(29, 29, 29));
+        tfdSenha.setToolTipText("Digite sua senha");
+        tfdSenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 226, 226)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         tfdSenha.setPreferredSize(new java.awt.Dimension(210, 23));
         tfdSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfdSenhaKeyPressed(evt);
             }
         });
+        jPanel1.add(tfdSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 340, 40));
 
+        tfdUsuario.setBackground(new java.awt.Color(250, 250, 250));
+        tfdUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tfdUsuario.setForeground(new java.awt.Color(29, 29, 29));
+        tfdUsuario.setToolTipText("Digite seu usuário");
+        tfdUsuario.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 226, 226)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         tfdUsuario.setPreferredSize(new java.awt.Dimension(59, 23));
+        tfdUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfdUsuarioActionPerformed(evt);
+            }
+        });
         tfdUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfdUsuarioKeyPressed(evt);
             }
         });
+        jPanel1.add(tfdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 340, 40));
 
-        btnconvidado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnconvidado.setText("Entrar como convidado");
-        btnconvidado.addActionListener(new java.awt.event.ActionListener() {
+        btnConvidado.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnConvidado.setText("Entrar como convidado");
+        btnConvidado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConvidado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnconvidadoActionPerformed(evt);
+                btnConvidadoActionPerformed(evt);
             }
         });
-        btnconvidado.addKeyListener(new java.awt.event.KeyAdapter() {
+        btnConvidado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnconvidadoKeyPressed(evt);
+                btnConvidadoKeyPressed(evt);
             }
         });
+        jPanel1.add(btnConvidado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfdSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tfdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnconvidado)
-                .addGap(18, 18, 18)
-                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tfdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnconvidado)
-                    .addComponent(btnEntrar))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        jPanel2.setBackground(new java.awt.Color(38, 54, 59));
+        jPanel2.setLayout(new java.awt.CardLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(243, 243, 243));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("AGENDA");
+        jPanel2.add(jLabel3, "card2");
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 60));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 310));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
@@ -195,7 +207,7 @@ public class LoginView extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_tfdUsuarioKeyPressed
 
-    private void btnconvidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconvidadoActionPerformed
+    private void btnConvidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvidadoActionPerformed
     UsuarioM usuarioM = new UsuarioM();
     usuarioM = null;
     String convidado = "convidado";
@@ -207,7 +219,7 @@ public class LoginView extends javax.swing.JFrame {
     }
     PrincipalView principal = new PrincipalView(usuarioM);
     this.dispose();
-    }//GEN-LAST:event_btnconvidadoActionPerformed
+    }//GEN-LAST:event_btnConvidadoActionPerformed
 
     private void tfdSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdSenhaKeyPressed
       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -249,23 +261,30 @@ public class LoginView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfdSenhaKeyPressed
 
-    private void btnconvidadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnconvidadoKeyPressed
+    private void btnConvidadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnConvidadoKeyPressed
     if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
     PrincipalView principal = new PrincipalView(usuarioM);
         }
-    }//GEN-LAST:event_btnconvidadoKeyPressed
+    }//GEN-LAST:event_btnConvidadoKeyPressed
 
     private void btnEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEntrarKeyPressed
      
     }//GEN-LAST:event_btnEntrarKeyPressed
 
+    private void tfdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfdUsuarioActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConvidado;
     private javax.swing.JButton btnEntrar;
-    private javax.swing.JButton btnconvidado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField tfdSenha;
     private javax.swing.JTextField tfdUsuario;
     // End of variables declaration//GEN-END:variables
