@@ -585,7 +585,7 @@ public class ConsultaView extends javax.swing.JInternalFrame {
         }catch(SQLException ex){    
             Logger.getLogger(ConsultaView.class.getName()).log(Level.SEVERE,null,ex);
         }
-         String dados[][] = new String[listaSetor.size()][5];
+         String dados[][] = new String[listaSetor.size()][3];
         for (SetorM setor : listaSetor) {
             cbxSetor.addItem(setor.getNome());
         }
@@ -620,9 +620,9 @@ public class ConsultaView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(40);
-            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(40);
-            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(40);
+            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbeConsulta.getColumnModel().getColumn(1).setPreferredWidth(100);
             tbeConsulta.getColumnModel().getColumn(2).setPreferredWidth(80);
             tbeConsulta.getColumnModel().getColumn(2).setMinWidth(80);
@@ -662,9 +662,9 @@ public class ConsultaView extends javax.swing.JInternalFrame {
                 }
             });
         
-        tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(40);
-        tbeConsulta.getColumnModel().getColumn(0).setMinWidth(40);
-        tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(40);
+        tbeConsulta.getColumnModel().getColumn(0).setMinWidth(0);
+        tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(0);
+        tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(0);
         tbeConsulta.getColumnModel().getColumn(1).setPreferredWidth(100);
         tbeConsulta.getColumnModel().getColumn(2).setPreferredWidth(80);
         tbeConsulta.getColumnModel().getColumn(2).setMinWidth(80);

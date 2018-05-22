@@ -86,7 +86,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             int i = 0;
             for (SetorM setor : listaSetor) {
                 //dados[i][0] = String.valueOf(setor.getId());
-                dados[i][0] = setor.getNome();
+                dados[i][1] = setor.getNome();
                 dados[i][2] = String.valueOf(setor.getId());
                 i++;
             }
@@ -100,10 +100,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                     return canEdit[columnIndex];
                 }
             });
-
-            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(25);
-            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(100);
-
+            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(50);
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
             tbeRelatorio.getColumnModel().getColumn(1).setCellRenderer(centralizado);
@@ -135,9 +133,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(350);
-            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(50);
 
             tbeRelatorio.getTableHeader().setReorderingAllowed(false);
             
@@ -174,9 +171,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(350);
-            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(50);
 
             tbeRelatorio.getTableHeader().setReorderingAllowed(false);
             

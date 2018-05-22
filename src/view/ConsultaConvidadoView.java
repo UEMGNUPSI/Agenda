@@ -321,9 +321,9 @@ public class ConsultaConvidadoView extends javax.swing.JInternalFrame {
             
             // Tamanho das colunas
             
-            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(425);
-            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(425);
-            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(425);
+            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(0);
             
             tbeConsulta.getColumnModel().getColumn(1).setPreferredWidth(150);
             tbeConsulta.getColumnModel().getColumn(1).setMinWidth(150);          
@@ -382,9 +382,9 @@ public class ConsultaConvidadoView extends javax.swing.JInternalFrame {
             
             // Tamanho das colunas
             
-            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(425);
-            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(425);
-            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(425);
+            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(0);
             
             tbeConsulta.getColumnModel().getColumn(1).setPreferredWidth(150);
             tbeConsulta.getColumnModel().getColumn(1).setMinWidth(150);          

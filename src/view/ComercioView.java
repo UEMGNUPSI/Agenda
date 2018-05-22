@@ -32,6 +32,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         tbeComercio.getTableHeader().setReorderingAllowed(false);
         atualizaTabelaComercio();
         desativarCampos();
+        tfdId.setVisible(false);
         
         //Limita digitos nos campos
         tfdNome.setDocument(new LimiteDigitos(50));
@@ -77,7 +78,9 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeComercio.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tbeComercio.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeComercio.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeComercio.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbeComercio.getColumnModel().getColumn(1).setPreferredWidth(200);
             tbeComercio.getColumnModel().getColumn(2).setPreferredWidth(100);
             
@@ -117,7 +120,9 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeComercio.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tbeComercio.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeComercio.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeComercio.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbeComercio.getColumnModel().getColumn(1).setPreferredWidth(200);
             tbeComercio.getColumnModel().getColumn(2).setPreferredWidth(100);
             
@@ -137,7 +142,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
         tfdCelular1 = new javax.swing.JFormattedTextField();
         jLabel20 = new javax.swing.JLabel();
         tfdCidadeEstado = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
         tfdId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         tfdEndereco = new javax.swing.JTextField();
@@ -165,7 +169,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
         tfdbusca = new javax.swing.JTextField();
         cbxFiltro = new javax.swing.JComboBox();
         jLabel15 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
         btnLimpa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbeComercio = new javax.swing.JTable();
@@ -187,8 +190,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 tfdCidadeEstadoActionPerformed(evt);
             }
         });
-
-        jLabel19.setText("ID");
 
         tfdId.setEditable(false);
         tfdId.setEnabled(false);
@@ -289,9 +290,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
                                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(65, 65, 65)
-                                                    .addComponent(jLabel20)
-                                                    .addGap(84, 84, 84)
-                                                    .addComponent(jLabel19))
+                                                    .addComponent(jLabel20))
                                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,8 +342,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel19))
+                    .addComponent(jLabel20))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfdNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,6 +399,11 @@ public class ComercioView extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         tfdbusca.setPreferredSize(new java.awt.Dimension(6, 23));
+        tfdbusca.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                tfdbuscaCaretUpdate(evt);
+            }
+        });
         tfdbusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfdbuscaKeyPressed(evt);
@@ -411,13 +414,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
         cbxFiltro.setPreferredSize(new java.awt.Dimension(95, 23));
 
         jLabel15.setText("Filtro");
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
 
         btnLimpa.setText("Limpar");
         btnLimpa.addActionListener(new java.awt.event.ActionListener() {
@@ -437,10 +433,9 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tfdbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLimpa, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,7 +443,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel15)
                 .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(tfdbusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnBuscar)
                 .addComponent(btnLimpa))
         );
 
@@ -482,14 +476,15 @@ public class ComercioView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
+                        .addGap(5, 5, 5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(5, 5, 5))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,14 +610,46 @@ public class ComercioView extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tfdbuscaKeyPressed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        listacomercio = null;
-        if(tfdbusca.getText().equals("") )
-        {
-            JOptionPane.showMessageDialog(null, "Preencha o campo corretamente! ", "erro", JOptionPane.WARNING_MESSAGE);
-            atualizaTabelaComercio();
+    private void btnLimpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpaActionPerformed
+        cbxFiltro.setSelectedItem("");
+        tfdbusca.setText("");
+        atualizaTabelaComercio();
+        tfdbusca.requestFocusInWindow();
+    }//GEN-LAST:event_btnLimpaActionPerformed
+
+    private void tbeComercioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeComercioMouseClicked
+        limparCamposComercio();
+        comercio = new ComercioM();
+
+        tfdId.setText(tbeComercio.getValueAt(tbeComercio.getSelectedRow(),0).toString());
+        String integer = tfdId.getText();
+        int id = Integer.parseInt(integer);
+        comercio.setId(id);
+
+        try{
+            comercio = comerciodao.busca(id);
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
         }
-        else if(cbxFiltro.getSelectedIndex()== 0)
+
+        tbeComercio.getTableHeader().setReorderingAllowed(false);
+        tfdId.setText(Integer.toString(comercio.getId()));
+        tfdNome.setText(comercio.getNome());
+        tfdAreaAtuante.setText(comercio.getArea_atuante());
+        tfdEndereco.setText(comercio.getEndereco());
+        tfdCidadeEstado.setText(comercio.getCidadeEstado());
+        tfdTelComercial1.setText(comercio.getTelComercial1());
+        tfdTelComercial2.setText(comercio.getTelComercial2());
+        tfdCelular1.setText(comercio.getCelular());
+        tfdEmail.setText(comercio.getEmail());
+        taaObservacao.setText(comercio.getObservacao());
+        btnAlterar.setEnabled(true);
+        btnExcluir.setEnabled(true);
+    }//GEN-LAST:event_tbeComercioMouseClicked
+
+    private void tfdbuscaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_tfdbuscaCaretUpdate
+        listacomercio = null;
+        if(cbxFiltro.getSelectedIndex()== 0)
         {
             try{
 
@@ -662,44 +689,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
         }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnLimpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpaActionPerformed
-        cbxFiltro.setSelectedItem("");
-        tfdbusca.setText("");
-        atualizaTabelaComercio();
-        tfdbusca.requestFocusInWindow();
-    }//GEN-LAST:event_btnLimpaActionPerformed
-
-    private void tbeComercioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeComercioMouseClicked
-        limparCamposComercio();
-        comercio = new ComercioM();
-
-        tfdId.setText(tbeComercio.getValueAt(tbeComercio.getSelectedRow(),0).toString());
-        String integer = tfdId.getText();
-        int id = Integer.parseInt(integer);
-        comercio.setId(id);
-
-        try{
-            comercio = comerciodao.busca(id);
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
-        }
-
-        tbeComercio.getTableHeader().setReorderingAllowed(false);
-        tfdId.setText(Integer.toString(comercio.getId()));
-        tfdNome.setText(comercio.getNome());
-        tfdAreaAtuante.setText(comercio.getArea_atuante());
-        tfdEndereco.setText(comercio.getEndereco());
-        tfdCidadeEstado.setText(comercio.getCidadeEstado());
-        tfdTelComercial1.setText(comercio.getTelComercial1());
-        tfdTelComercial2.setText(comercio.getTelComercial2());
-        tfdCelular1.setText(comercio.getCelular());
-        tfdEmail.setText(comercio.getEmail());
-        taaObservacao.setText(comercio.getObservacao());
-        btnAlterar.setEnabled(true);
-        btnExcluir.setEnabled(true);
-    }//GEN-LAST:event_tbeComercioMouseClicked
+    }//GEN-LAST:event_tfdbuscaCaretUpdate
 
     //Mascara que formata para regularizar como é inserido o telefone
     public static DefaultFormatterFactory setFormatoTelefone(){  
@@ -807,7 +797,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpa;
@@ -818,7 +807,6 @@ public class ComercioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;

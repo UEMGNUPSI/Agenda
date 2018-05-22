@@ -14,11 +14,11 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
 
    public UsuarioM usuario = new UsuarioM();
     public MinhaContaView(UsuarioM usuario) {
-        initComponents();
-        this.setVisible(true);
-        this.usuario = usuario;
-        
-     tfdNome.setDocument(new LimiteDigitos(90));
+    initComponents();
+    this.setVisible(true);
+    this.usuario = usuario;
+    tfdId.setVisible(false);
+    tfdNome.setDocument(new LimiteDigitos(90));
     tfdContato.setDocument(new LimiteDigitos(64));
     tfdUsuario.setDocument(new LimiteDigitos(20));
     tfdSenha.setDocument(new LimiteDigitos(20));
@@ -37,7 +37,6 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         pnlDetalhes = new javax.swing.JPanel();
         tfdContato = new javax.swing.JTextField();
-        tfdId = new javax.swing.JTextField();
         tfdUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         tfdSenha = new javax.swing.JPasswordField();
@@ -47,9 +46,9 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblTipoDeConta = new javax.swing.JLabel();
+        tfdId = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Minha Conta");
@@ -87,8 +86,6 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
             }
         });
 
-        tfdId.setEnabled(false);
-
         tfdUsuario.setEnabled(false);
 
         jLabel4.setText("Nome");
@@ -107,11 +104,11 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Confirma Senha");
 
-        jLabel3.setText("ID");
-
         jLabel2.setText("Tipo de Conta:");
 
         lblTipoDeConta.setText("TipoDeConta");
+
+        tfdId.setEnabled(false);
 
         javax.swing.GroupLayout pnlDetalhesLayout = new javax.swing.GroupLayout(pnlDetalhes);
         pnlDetalhes.setLayout(pnlDetalhesLayout);
@@ -127,38 +124,39 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
                     .addComponent(tfdConfirmaSenha)
                     .addGroup(pnlDetalhesLayout.createSequentialGroup()
                         .addGroup(pnlDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel7))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlDetalhesLayout.createSequentialGroup()
-                        .addComponent(tfdId, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTipoDeConta)
-                        .addGap(24, 24, 24)))
+                        .addComponent(tfdId, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6))
+            .addGroup(pnlDetalhesLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTipoDeConta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDetalhesLayout.setVerticalGroup(
             pnlDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDetalhesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(pnlDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfdId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(lblTipoDeConta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfdNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addGroup(pnlDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlDetalhesLayout.createSequentialGroup()
+                        .addComponent(tfdNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5))
+                    .addComponent(tfdId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfdContato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -202,7 +200,7 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
                     .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -306,7 +304,6 @@ public class MinhaContaView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

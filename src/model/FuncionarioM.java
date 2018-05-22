@@ -41,6 +41,16 @@ public class FuncionarioM {
         this.inativo = inativo;
     }
 
+    public FuncionarioM(int id, String nome, SetorM setor, String ramal, Boolean docente, Boolean inativo) {
+        this.id = id;
+        this.nome = nome;
+        this.setor = setor;
+        this.ramal = ramal;
+        this.docente = docente;
+        this.inativo = inativo;
+    }
+
+    
     public FuncionarioM() {
     }
 

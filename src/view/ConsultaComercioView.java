@@ -407,8 +407,9 @@ public class ConsultaComercioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(10);
-            
+            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(0);
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
             tbeConsulta.getColumnModel().getColumn(0).setCellRenderer(centralizado);
@@ -441,7 +442,9 @@ public class ConsultaComercioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tbeConsulta.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeConsulta.getColumnModel().getColumn(0).setPreferredWidth(0);
             
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
