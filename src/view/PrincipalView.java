@@ -300,6 +300,7 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             FuncionarioView contato = new FuncionarioView();
             pnlPrincipal.removeAll();
+            contato.setLocation(pnlPrincipal.getWidth()/2 - contato.getWidth()/2,pnlPrincipal.getHeight()/2 - contato.getHeight()/2);
             pnlPrincipal.add(contato);
             pnlPrincipal.updateUI();
         }
@@ -311,6 +312,7 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             SetorView departamento = new SetorView();
             pnlPrincipal.removeAll();
+            departamento.setLocation(pnlPrincipal.getWidth()/2 - departamento.getWidth()/2,pnlPrincipal.getHeight()/2 - departamento.getHeight()/2);
             pnlPrincipal.add(departamento);
             pnlPrincipal.updateUI();
         }
@@ -326,6 +328,7 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             UsuarioView usuario = new UsuarioView();
             pnlPrincipal.removeAll();
+            usuario.setLocation(pnlPrincipal.getWidth()/2 - usuario.getWidth()/2,pnlPrincipal.getHeight()/2 - usuario.getHeight()/2);
             pnlPrincipal.add(usuario);
             pnlPrincipal.updateUI();
         }
@@ -338,6 +341,7 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             MinhaContaView minhaconta = new MinhaContaView(usuarioAtivo);
             pnlPrincipal.removeAll();
+            minhaconta.setLocation(pnlPrincipal.getWidth()/2 - minhaconta.getWidth()/2,pnlPrincipal.getHeight()/2 - minhaconta.getHeight()/2);
             pnlPrincipal.add(minhaconta);
             pnlPrincipal.updateUI();
         }
@@ -348,6 +352,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         SobreView sobre = new SobreView();
         pnlPrincipal.removeAll();
+        sobre.setLocation(pnlPrincipal.getWidth()/2 - sobre.getWidth()/2,pnlPrincipal.getHeight()/2 - sobre.getHeight()/2);
         pnlPrincipal.add(sobre);
         pnlPrincipal.updateUI();
 
@@ -359,6 +364,7 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             RelatorioView relatorio = new RelatorioView();
             pnlPrincipal.removeAll();
+            relatorio.setLocation(pnlPrincipal.getWidth()/2 - relatorio.getWidth()/2,pnlPrincipal.getHeight()/2 - relatorio.getHeight()/2);
             pnlPrincipal.add(relatorio);
             pnlPrincipal.updateUI();
         }
@@ -367,6 +373,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private void mniPesquisaComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaComercioActionPerformed
         ConsultaComercioView pesquisacomercio = new ConsultaComercioView();
         pnlPrincipal.removeAll();
+        pesquisacomercio.setLocation(pnlPrincipal.getWidth()/2 - pesquisacomercio.getWidth()/2,pnlPrincipal.getHeight()/2 - pesquisacomercio.getHeight()/2);
         pnlPrincipal.add(pesquisacomercio);
         pnlPrincipal.updateUI();
     }//GEN-LAST:event_mniPesquisaComercioActionPerformed
@@ -374,9 +381,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private void mnuComercioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuComercioMouseClicked
             ComercioView comercio = new ComercioView();
             pnlPrincipal.removeAll();
+            comercio.setLocation(pnlPrincipal.getWidth()/2 - comercio.getWidth()/2,pnlPrincipal.getHeight()/2 - comercio.getHeight()/2);
             pnlPrincipal.add(comercio);
             pnlPrincipal.updateUI();
-            comercio.setLocation(pnlPrincipal.getWidth()/2 - comercio.getWidth()/2,pnlPrincipal.getHeight()/2 - comercio.getHeight()/2);
     }//GEN-LAST:event_mnuComercioMouseClicked
 
     private void mniPesquisaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniPesquisaFuncionarioActionPerformed
@@ -385,6 +392,7 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             ConsultaView pesquisa = new ConsultaView();
             pnlPrincipal.removeAll();
+            pesquisa.setLocation(pnlPrincipal.getWidth()/2 - pesquisa.getWidth()/2,pnlPrincipal.getHeight()/2 - pesquisa.getHeight()/2);
             pnlPrincipal.add(pesquisa);
             pnlPrincipal.updateUI();
 
@@ -392,11 +400,8 @@ public class PrincipalView extends javax.swing.JFrame {
         {
             
             ConsultaConvidadoView pesquisaConvidado = new ConsultaConvidadoView();
-            pnlPrincipal.add(pesquisaConvidado);
-            pesquisaConvidado.setVisible(true);
-            pesquisaConvidado.setLocation(pnlPrincipal.getWidth()/2 - pesquisaConvidado.getWidth()/2,pnlPrincipal.getHeight()/2 - pesquisaConvidado.getHeight()/2);
-            
             pnlPrincipal.removeAll();
+            pesquisaConvidado.setLocation(pnlPrincipal.getWidth()/2 - pesquisaConvidado.getWidth()/2,pnlPrincipal.getHeight()/2 - pesquisaConvidado.getHeight()/2);
             pnlPrincipal.add(pesquisaConvidado);
             pnlPrincipal.updateUI();
             
