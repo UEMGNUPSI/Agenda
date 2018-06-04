@@ -39,16 +39,8 @@ public class UsuarioView extends javax.swing.JInternalFrame {
 
         try {
             // REMOVE DA LISTA OS USUARIOS OCULTOS CONVIDADO CONVIDADO, A A, ROOT ROOT.
+            
             listaUsuario = UsuarioDAO.listaTodos(); 
-            
-            UsuarioM usuario0 = listaUsuario.get(0);
-            UsuarioM usuario1 = listaUsuario.get(1);
-            UsuarioM usuario2 = listaUsuario.get(2);
-            listaUsuario.remove(usuario1);
-            listaUsuario.remove(usuario2);
-            listaUsuario.remove(usuario0);
-            
-                
         } catch (SQLException ex){
             Logger.getLogger(UsuarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
