@@ -96,7 +96,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 dados[i][3] = funcionario.getRamal();
                 if(funcionario.getDocente() == true){
                 dados[i][4] = String.valueOf("Docente");}
-                else{dados[i][4] = String.valueOf("Funcionário");}
+                else{dados[i][4] = String.valueOf("Técnico Administrativo");}
                 if(funcionario.getInativo()== true){
                 dados[i][5] = String.valueOf("Inativo");}
                 else{dados[i][5] = String.valueOf("Ativo");}
@@ -120,6 +120,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             tbeFuncionario.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbeFuncionario.getColumnModel().getColumn(1).setPreferredWidth(200);
             tbeFuncionario.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tbeFuncionario.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tbeFuncionario.getColumnModel().getColumn(5).setPreferredWidth(40);
             
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
@@ -144,7 +146,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 dados[i][3] = funcionario.getRamal();
                 if(funcionario.getDocente() == true){
                 dados[i][4] = String.valueOf("Docente");}
-                else{dados[i][4] = String.valueOf("Funcionário");}
+                else{dados[i][4] = String.valueOf("Técnico Administrativo");}
                 if(funcionario.getInativo()== true){
                 dados[i][5] = String.valueOf("Inativo");}
                 else{dados[i][5] = String.valueOf("Ativo");}
@@ -169,6 +171,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             tbeFuncionario.getColumnModel().getColumn(0).setPreferredWidth(0);
             tbeFuncionario.getColumnModel().getColumn(1).setPreferredWidth(200);
             tbeFuncionario.getColumnModel().getColumn(2).setPreferredWidth(100);
+            tbeFuncionario.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tbeFuncionario.getColumnModel().getColumn(5).setPreferredWidth(40);
             
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
@@ -231,6 +235,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         cbxFiltro = new javax.swing.JComboBox();
         jLabel15 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -446,6 +451,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -454,11 +466,14 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tfdbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,7 +481,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel15)
                 .addComponent(cbxFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(tfdbusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton1))
+                .addComponent(jButton1)
+                .addComponent(jButton2))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -483,14 +499,14 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150))))
+                        .addGap(99, 99, 99))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -676,6 +692,10 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tfdbuscaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_tfdbuscaCaretUpdate
+
+    }//GEN-LAST:event_tfdbuscaCaretUpdate
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     listaFuncionario = null;
 
         if(cbxFiltro.getSelectedIndex()== 0)
@@ -737,7 +757,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
         }
-    }//GEN-LAST:event_tfdbuscaCaretUpdate
+    }//GEN-LAST:event_jButton2ActionPerformed
    
     //Ao selecionario um setor, é chamada o dao para fazer a busca no banco de dados
     public SetorM pegaSetor(){
@@ -896,6 +916,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox cbxInativo;
     private javax.swing.JComboBox cbxSetor;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

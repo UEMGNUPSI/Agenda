@@ -176,7 +176,7 @@ public class LoginView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
                 tfdSenha.requestFocus();
             } else {
-                usuarioM = UsuarioDAO.valida(tfdUsuario.getText(), tfdSenha.getText());
+                usuarioM = usuarioDAO.valida(tfdUsuario.getText(), tfdSenha.getText());
                 if(usuarioM == null){
                     JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
                     tfdUsuario.setText("");
@@ -209,14 +209,7 @@ public class LoginView extends javax.swing.JFrame {
 
     private void btnConvidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvidadoActionPerformed
     UsuarioM usuarioM = new UsuarioM();
-    usuarioM = null;
-    String convidado = "convidado";
-    try{
-        usuarioM = UsuarioDAO.valida(convidado, convidado);
-    }
-    catch(Exception ex){
-        ex.printStackTrace();
-    }
+    usuarioM.setAdmin(false);
     PrincipalView principal = new PrincipalView(usuarioM);
     this.dispose();
     }//GEN-LAST:event_btnConvidadoActionPerformed

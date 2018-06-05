@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
@@ -28,7 +29,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         if(usuarioAtivo.isAdmin() == false){
              mnuArquivos.setEnabled(false);
-             //mnuConsulta.setEnabled(false);
              mnuRelatorio.setEnabled(false);
              mnuUsuarios.setEnabled(false);
              mnuComercio.setEnabled(false);
@@ -62,7 +62,15 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        pnlPrincipal = new javax.swing.JPanel();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/view/icones/LOGO.png"));
+
+        Image image = icon.getImage();
+        pnlPrincipal = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+                g.drawImage(image,pnlPrincipal.getWidth()/2 - icon.getIconWidth()/2,pnlPrincipal.getHeight()/2 - icon.getIconHeight()/2,this);
+            }
+        };
         jMenuBar2 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
         mmiFuncionario = new javax.swing.JMenuItem();
@@ -101,8 +109,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Agenda");
-
-        pnlPrincipal.setBackground(new java.awt.Color(249, 249, 249));
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
@@ -284,11 +290,11 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal)
         );
 
         pack();
@@ -440,6 +446,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu mnuRelatorio;
     private javax.swing.JMenu mnuSobre;
     private javax.swing.JMenu mnuUsuarios;
-    private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JDesktopPane pnlPrincipal;
     // End of variables declaration//GEN-END:variables
 }
