@@ -36,7 +36,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         tfdConfirmaSenha.setDocument(new LimiteDigitos(20));
         txtusuario.setDocument(new LimiteDigitos(20));
         txtsenha.setDocument(new LimiteDigitos(20));
-        
+        btnEntrar.setUI(new BasicButtonUI());
     }
     
     
@@ -146,6 +146,11 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         txtsenha.setToolTipText("Digite sua senha");
         txtsenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 226, 226)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         txtsenha.setPreferredSize(new java.awt.Dimension(210, 23));
+        txtsenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtsenhaKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 340, 40));
 
         txtusuario.setBackground(new java.awt.Color(250, 250, 250));
@@ -167,7 +172,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(243, 243, 243));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Entre Com Administrador");
+        jLabel8.setText("ENTRE COM ADMINISTRADOR");
         jPanel2.add(jLabel8, "card2");
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 60));
@@ -588,6 +593,49 @@ public class UsuarioView extends javax.swing.JInternalFrame {
             txtsenha.requestFocusInWindow();
         }
     }//GEN-LAST:event_txtusuarioKeyPressed
+
+    private void txtsenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsenhaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            usuarioM = null;
+            try {
+                if (txtusuario.getText().isEmpty()) {
+                    //erro.setText("O nome do usuario deve ser preechido");
+                    JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                    txtusuario.requestFocus();
+
+                } else if (txtsenha.getText().isEmpty()) {
+                    //erro.setText("A senha deve ser preechido");
+                    //erro.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                    txtsenha.requestFocus();
+                } else {
+                    usuarioM = usuarioDAO.validaAdmin(txtusuario.getText(), txtsenha.getText());
+                    if(usuarioM == null){
+                        JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                        txtusuario.setText("");
+                        txtsenha.setText("");
+                        txtusuario.requestFocus();
+                    }else{
+                        txtusuario.setText("");
+                        txtsenha.setText("");
+                        limpaCamposUsuario();
+                        preparaNovo();
+                        ativaCampos();
+                        tfdNome.requestFocusInWindow();
+                        JConfirmaAdministrador.dispose();
+                    }
+
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                txtusuario.setText("");
+                txtsenha.setText("");
+                txtusuario.requestFocus();
+                ex.printStackTrace();
+
+            }
+        }
+    }//GEN-LAST:event_txtsenhaKeyPressed
 
     // INÍCIO MÉTODOS DE CONTROLE DE BOTÕES
     

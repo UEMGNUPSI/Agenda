@@ -34,7 +34,7 @@ public class UsuarioDAO {
                        rs.getString("contato"),
                        rs.getString("usuario"),
                        rs.getString("senha"),
-                       rs.getBoolean("admin")
+                       rs.getBoolean("adm")
                );
             }
             pst.close();
@@ -44,7 +44,7 @@ public class UsuarioDAO {
     public UsuarioM validaAdmin(String user, String senha) throws SQLException{
         PreparedStatement pst;
         String sql;
-           sql = "select * from Usuario where usuario = ? and senha = ? and admin = ?";
+           sql = "select * from Usuario where usuario = ? and senha = ? and adm = ?";
            pst = Conexao.getInstance().prepareStatement(sql);
            pst.setString(1, user);
            pst.setString(2, senha);
@@ -58,7 +58,7 @@ public class UsuarioDAO {
                        rs.getString("contato"),
                        rs.getString("usuario"),
                        rs.getString("senha"),
-                       rs.getBoolean("admin")
+                       rs.getBoolean("adm")
                );
             }
             pst.close();
@@ -139,7 +139,7 @@ public class UsuarioDAO {
                        rs.getString("contato"),
                        rs.getString("usuario"), 
                        rs.getString("senha"),
-                       rs.getBoolean("admin")
+                       rs.getBoolean("adm")
                );
         }
         pst.close();

@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `Agenda`.`Usuario`(
  `contato` VARCHAR (64) NOT NULL,
  `usuario` VARCHAR(20) NOT NULL UNIQUE,
  `senha` VARCHAR(20) NOT NULL,
- `admin` boolean NOT NULL,
+ `adm` boolean NOT NULL,
   PRIMARY KEY (`id`)
 );
 

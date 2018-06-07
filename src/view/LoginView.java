@@ -22,17 +22,14 @@ import util.LimiteDigitos;
  */
 public class LoginView extends javax.swing.JFrame {
 
-    UsuarioM usuarioM;
-    UsuarioDAO usuarioDAO;
+    UsuarioM usuarioM = new UsuarioM();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
     
     public LoginView() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        usuarioM = new UsuarioM();
-        
         this.tfdUsuario.requestFocus();
-        usuarioDAO = new UsuarioDAO();
         
         btnEntrar.setUI(new BasicButtonUI());
         btnConvidado.setUI(new BasicButtonUI());
