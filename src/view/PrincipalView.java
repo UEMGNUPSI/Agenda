@@ -62,13 +62,12 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        ImageIcon icon = new ImageIcon(getClass().getResource("/view/icones/LOGO.png"));
-
+        ImageIcon icon = new ImageIcon(getClass().getResource("/view/icones/uemg.png"));
         Image image = icon.getImage();
         pnlPrincipal = new javax.swing.JDesktopPane(){
 
             public void paintComponent(Graphics g){
-                g.drawImage(image,pnlPrincipal.getWidth()/2 - icon.getIconWidth()/2,pnlPrincipal.getHeight()/2 - icon.getIconHeight()/2,this);
+                g.drawImage(image, pnlPrincipal.getWidth()/2 - icon.getIconWidth()/2,pnlPrincipal.getHeight()/2 - icon.getIconHeight()/2,this);
             }
         };
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -121,7 +120,8 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGap(0, 492, Short.MAX_VALUE)
         );
 
-        jMenuBar2.setBackground(new java.awt.Color(226, 226, 226));
+        jMenuBar2.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar2.setToolTipText("");
         jMenuBar2.setBorderPainted(false);
         jMenuBar2.setPreferredSize(new java.awt.Dimension(56, 70));
 

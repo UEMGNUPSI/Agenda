@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `Agenda`.`Funcionario` (
   `observacao` VARCHAR(150) NULL,
   `id_setor` INT NULL,
   `ramal` VARCHAR(30) NULL,
-  `docente` INT NULL,
-  `inativo` INT NULL,
+  `docente` boolean NULL,
+  `inativo` boolean NULL,
   PRIMARY KEY (`id`),
   INDEX `id_setor_idx` (`id_setor` ASC),
   CONSTRAINT `id_setor`
