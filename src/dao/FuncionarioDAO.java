@@ -218,6 +218,7 @@ public class FuncionarioDAO {
                    rs.getString("ramal"),
                    rs.getBoolean("docente"),
                    rs.getBoolean("inativo")));  
+           cont++;
         }
         if(cont == 0){
             return null;

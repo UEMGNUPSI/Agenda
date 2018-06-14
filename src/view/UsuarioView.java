@@ -25,7 +25,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
    
     public UsuarioView() {
         initComponents();
-        JConfirmaAdministrador.setSize(471, 350);
         this.setVisible(true);
         atualizaTabelaUsuario();
         tfdId.setVisible(false);
@@ -34,9 +33,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         tfdNomeUsuario.setDocument(new LimiteDigitos(20));
         tfdSenha.setDocument(new LimiteDigitos(20));
         tfdConfirmaSenha.setDocument(new LimiteDigitos(20));
-        txtusuario.setDocument(new LimiteDigitos(20));
-        txtsenha.setDocument(new LimiteDigitos(20));
-        btnEntrar.setUI(new BasicButtonUI());
     }
     
     
@@ -87,15 +83,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JConfirmaAdministrador = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        btnEntrar = new javax.swing.JButton();
-        txtsenha = new javax.swing.JPasswordField();
-        txtusuario = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         btnNovo = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -116,85 +103,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         tfdConfirmaSenha = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         tfdSenha = new javax.swing.JPasswordField();
-
-        jPanel1.setBackground(new java.awt.Color(244, 244, 244));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        jLabel1.setText("Usuário");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        jLabel7.setText("Senha");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
-
-        btnEntrar.setBackground(new java.awt.Color(165, 214, 168));
-        btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(61, 100, 63));
-        btnEntrar.setText("Entrar");
-        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 90, -1));
-
-        txtsenha.setBackground(new java.awt.Color(250, 250, 250));
-        txtsenha.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtsenha.setForeground(new java.awt.Color(29, 29, 29));
-        txtsenha.setToolTipText("Digite sua senha");
-        txtsenha.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 226, 226)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
-        txtsenha.setPreferredSize(new java.awt.Dimension(210, 23));
-        txtsenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtsenhaKeyPressed(evt);
-            }
-        });
-        jPanel1.add(txtsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 340, 40));
-
-        txtusuario.setBackground(new java.awt.Color(250, 250, 250));
-        txtusuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtusuario.setForeground(new java.awt.Color(29, 29, 29));
-        txtusuario.setToolTipText("Digite seu usuário");
-        txtusuario.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(226, 226, 226)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
-        txtusuario.setPreferredSize(new java.awt.Dimension(59, 23));
-        txtusuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtusuarioKeyPressed(evt);
-            }
-        });
-        jPanel1.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 340, 40));
-
-        jPanel2.setBackground(new java.awt.Color(38, 54, 59));
-        jPanel2.setLayout(new java.awt.CardLayout());
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(243, 243, 243));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("ENTRE COM ADMINISTRADOR");
-        jPanel2.add(jLabel8, "card2");
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 60));
-
-        javax.swing.GroupLayout JConfirmaAdministradorLayout = new javax.swing.GroupLayout(JConfirmaAdministrador.getContentPane());
-        JConfirmaAdministrador.getContentPane().setLayout(JConfirmaAdministradorLayout);
-        JConfirmaAdministradorLayout.setHorizontalGroup(
-            JConfirmaAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
-            .addGroup(JConfirmaAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JConfirmaAdministradorLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        JConfirmaAdministradorLayout.setVerticalGroup(
-            JConfirmaAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-            .addGroup(JConfirmaAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JConfirmaAdministradorLayout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
 
         setClosable(true);
         setResizable(true);
@@ -401,12 +309,22 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        JConfirmaAdministrador.setVisible(true);
-        JConfirmaAdministrador.setLocationRelativeTo(null);
-        btnEntrar.setUI(new BasicButtonUI());
-        txtusuario.requestFocus();
-        JConfirmaAdministrador.setAlwaysOnTop(true);
-       
+        usuarioM = new UsuarioM();
+        String ConfirmarAlt = JOptionPane.showInputDialog(null,"Digite o Login Administrador:");
+        String ConfirmarShift = JOptionPane.showInputDialog(null,"Digite a Senha Administrador:");
+            try {
+                usuarioM = usuarioDAO.validaAdmin(ConfirmarAlt, ConfirmarShift);
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+                if(usuarioM == null){
+                    JOptionPane.showMessageDialog(null, "Usuario Não Confere.");   
+                }else{
+                    limpaCamposUsuario();
+                    preparaNovo();
+                    ativaCampos();
+                }
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -547,96 +465,6 @@ public class UsuarioView extends javax.swing.JInternalFrame {
        preparaSelecaoTabela();
     }//GEN-LAST:event_tbeUsuarioMouseClicked
 
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        usuarioM = null;
-        try {
-            if (txtusuario.getText().isEmpty()) {
-                //erro.setText("O nome do usuario deve ser preechido");
-                JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                txtusuario.requestFocus();
-
-            } else if (txtsenha.getText().isEmpty()) {
-                //erro.setText("A senha deve ser preechido");
-                //erro.setVisible(true);
-                JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                txtsenha.requestFocus();
-            } else {
-                usuarioM = usuarioDAO.validaAdmin(txtusuario.getText(), txtsenha.getText());
-                if(usuarioM == null){
-                    JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
-                    txtusuario.setText("");
-                    txtsenha.setText("");
-                    txtusuario.requestFocus();
-                }else{
-                    txtusuario.setText("");
-                    txtsenha.setText("");
-                    limpaCamposUsuario();
-                    preparaNovo();
-                    ativaCampos();
-                    tfdNome.requestFocusInWindow();
-                    JConfirmaAdministrador.dispose();
-                }
-
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
-            txtusuario.setText("");
-            txtsenha.setText("");
-            txtusuario.requestFocus();
-            ex.printStackTrace();
-
-        }
-    }//GEN-LAST:event_btnEntrarActionPerformed
-
-    private void txtusuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtusuarioKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txtsenha.requestFocusInWindow();
-        }
-    }//GEN-LAST:event_txtusuarioKeyPressed
-
-    private void txtsenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsenhaKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            usuarioM = null;
-            try {
-                if (txtusuario.getText().isEmpty()) {
-                    //erro.setText("O nome do usuario deve ser preechido");
-                    JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                    txtusuario.requestFocus();
-
-                } else if (txtsenha.getText().isEmpty()) {
-                    //erro.setText("A senha deve ser preechido");
-                    //erro.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                    txtsenha.requestFocus();
-                } else {
-                    usuarioM = usuarioDAO.validaAdmin(txtusuario.getText(), txtsenha.getText());
-                    if(usuarioM == null){
-                        JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
-                        txtusuario.setText("");
-                        txtsenha.setText("");
-                        txtusuario.requestFocus();
-                    }else{
-                        txtusuario.setText("");
-                        txtsenha.setText("");
-                        limpaCamposUsuario();
-                        preparaNovo();
-                        ativaCampos();
-                        tfdNome.requestFocusInWindow();
-                        JConfirmaAdministrador.dispose();
-                    }
-
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
-                txtusuario.setText("");
-                txtsenha.setText("");
-                txtusuario.requestFocus();
-                ex.printStackTrace();
-
-            }
-        }
-    }//GEN-LAST:event_txtsenhaKeyPressed
-
     // INÍCIO MÉTODOS DE CONTROLE DE BOTÕES
     
     public void preparaSalvareCancelar() {
@@ -716,23 +544,16 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     // FIM MÉTODOS DE CONTROLE DE BOTÕES
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog JConfirmaAdministrador;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel pnlDadosUsuario;
@@ -743,7 +564,5 @@ public class UsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfdNome;
     private javax.swing.JTextField tfdNomeUsuario;
     private javax.swing.JPasswordField tfdSenha;
-    private javax.swing.JPasswordField txtsenha;
-    private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
 }

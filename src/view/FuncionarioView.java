@@ -2,6 +2,7 @@ package view;
 
 import dao.FuncionarioDAO;
 import dao.SetorDAO;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -269,7 +270,16 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jPanel2.setToolTipText("");
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tfdCelular1.setFormatterFactory(setFormatoCelular());
+        try {
+            tfdCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9.####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfdCelular1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfdCelular1KeyPressed(evt);
+            }
+        });
         jPanel2.add(tfdCelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 136, 126, -1));
 
         jLabel20.setText("* Campos Obrigatórios ");
@@ -303,25 +313,46 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         tfdNome.setEnabled(false);
         jPanel2.add(tfdNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 41, 390, -1));
 
-        tfdTelResidencial.setFormatterFactory(setFormatoTelefone());
-        tfdTelResidencial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfdTelResidencialActionPerformed(evt);
+        try {
+            tfdTelResidencial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfdTelResidencial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfdTelResidencialKeyPressed(evt);
             }
         });
         jPanel2.add(tfdTelResidencial, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 182, 126, -1));
 
-        tfdTelComercial1.setFormatterFactory(setFormatoTelefone());
+        try {
+            tfdTelComercial1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jPanel2.add(tfdTelComercial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 182, 126, -1));
 
         cbxDocente.setText("Docente");
         cbxDocente.setEnabled(false);
         jPanel2.add(cbxDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 473, -1, -1));
 
-        tfdTelComercial2.setFormatterFactory(setFormatoTelefone());
+        try {
+            tfdTelComercial2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jPanel2.add(tfdTelComercial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 182, 116, -1));
 
-        tfdCelular2.setFormatterFactory(setFormatoCelular());
+        try {
+            tfdCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9.####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfdCelular2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfdCelular2KeyPressed(evt);
+            }
+        });
         jPanel2.add(tfdCelular2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 136, 126, -1));
 
         tfdHorario.setEnabled(false);
@@ -422,7 +453,16 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jPanel2.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 507, 82, -1));
         jPanel2.add(tfdRamal, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 274, 106, -1));
 
-        tfdCelular3.setFormatterFactory(setFormatoCelular());
+        try {
+            tfdCelular3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9.####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfdCelular3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfdCelular3KeyPressed(evt);
+            }
+        });
         jPanel2.add(tfdCelular3, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 136, 116, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -680,10 +720,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     
     }//GEN-LAST:event_tfdbuscaKeyPressed
 
-    private void tfdTelResidencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdTelResidencialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfdTelResidencialActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     cbxFiltro.setSelectedItem("");
     tfdbusca.setText("");
@@ -758,6 +794,34 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tfdCelular1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdCelular1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            if(tfdCelular1.getText().equals("()"))
+            tfdCelular1.setValue("");
+        }
+    }//GEN-LAST:event_tfdCelular1KeyPressed
+
+    private void tfdCelular2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdCelular2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            if(tfdCelular2.getText().equals("()"))
+            tfdCelular2.setValue("");
+        }
+    }//GEN-LAST:event_tfdCelular2KeyPressed
+
+    private void tfdCelular3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdCelular3KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            if(tfdCelular3.getText().equals("()"))
+            tfdCelular3.setValue("");
+        }
+    }//GEN-LAST:event_tfdCelular3KeyPressed
+
+    private void tfdTelResidencialKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdTelResidencialKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            if(tfdCelular1.getText().equals("()"))
+            tfdCelular1.setValue("");
+        }
+    }//GEN-LAST:event_tfdTelResidencialKeyPressed
    
     //Ao selecionario um setor, é chamada o dao para fazer a busca no banco de dados
     public SetorM pegaSetor(){
@@ -772,33 +836,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         }
         return null;
     }
-    
-    //Mascara que formata para regularizar como é inserido o telefone
-    public static DefaultFormatterFactory setFormatoTelefone(){  
-        MaskFormatter comFoco = null;  
-        try   
-        {   
-            comFoco = new MaskFormatter("(##)####-####"); 
-            comFoco.setPlaceholderCharacter('_');
-        }   
-        catch (Exception pe) { }  
-        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
-        return factory;  
-    }
-    
-    //Mascara que formata para regularizar como é inserido o celular
-    public static DefaultFormatterFactory setFormatoCelular(){  
-        MaskFormatter comFoco = null;  
-        try   
-        {   
-            comFoco = new MaskFormatter("(##)9####-####"); 
-            comFoco.setPlaceholderCharacter('_');
-        }   
-        catch (Exception pe) { }  
-        DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
-        return factory;  
-    } 
-
     
     // DECLARAÇÃO DE MÉTODOS DE CONTROLE DE BOTÕES
    public void limparCamposFuncionario(){

@@ -199,7 +199,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
 
         tfdEndereco.setEnabled(false);
 
-        jLabel2.setText("Endereço ");
+        jLabel2.setText("Endereço*");
 
         jLabel3.setText("Cidade/Estado ");
 

@@ -44,6 +44,7 @@ public class UsuarioDAO {
     public UsuarioM validaAdmin(String user, String senha) throws SQLException{
         PreparedStatement pst;
         String sql;
+        int aux = 0;
            sql = "select * from Usuario where usuario = ? and senha = ? and adm = ?";
            pst = Conexao.getInstance().prepareStatement(sql);
            pst.setString(1, user);
@@ -60,9 +61,15 @@ public class UsuarioDAO {
                        rs.getString("senha"),
                        rs.getBoolean("adm")
                );
+               aux++;
             }
             pst.close();
-            return usuario;
+            
+            if(aux == 0){
+                return null;
+            }else{
+                return usuario;
+            }
     }
     
     public List<UsuarioM> listaTodos() throws SQLException{
