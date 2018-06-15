@@ -1,14 +1,9 @@
 package dao;
 
 import java.io.Serializable;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 

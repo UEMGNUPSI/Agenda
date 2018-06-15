@@ -9,7 +9,9 @@
             <file>file:/C:/Users/Leandro/Documents/NetBeansProjects/agenda/src/dao/ComercioDAO.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/NUPSI/Documents/NetBeansProjects/Agenda/src/view/FuncionarioView.java</file>
+            <file>file:/C:/Users/NUPSI/Documents/NetBeansProjects/Agenda/src/dao/Conexao.java</file>
+            <file>file:/C:/Users/NUPSI/Documents/NetBeansProjects/Agenda/src/view/LoginView.java</file>
+            <file>file:/C:/Users/NUPSI/Documents/NetBeansProjects/Agenda/src/dao/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>

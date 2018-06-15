@@ -21,6 +21,7 @@ public class UsuarioDAO {
     public UsuarioM valida(String user, String senha) throws SQLException{
         PreparedStatement pst;
         String sql;
+        int aux = 0;
            sql = "select * from Usuario where usuario = ? and senha = ?";
            pst = Conexao.getInstance().prepareStatement(sql);
            pst.setString(1, user);
@@ -34,11 +35,15 @@ public class UsuarioDAO {
                        rs.getString("contato"),
                        rs.getString("usuario"),
                        rs.getString("senha"),
-                       rs.getBoolean("adm")
-               );
+                       rs.getBoolean("adm"));
+                    aux++;
             }
             pst.close();
-            return usuario;
+            if(aux == 0){
+                return null;
+            }else{
+                return usuario;
+            }
     }
     
     public UsuarioM validaAdmin(String user, String senha) throws SQLException{

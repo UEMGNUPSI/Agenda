@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
-import dao.Conexao;
 import dao.UsuarioDAO;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicButtonUI;
 import model.UsuarioM;
@@ -35,7 +33,7 @@ public class LoginView extends javax.swing.JFrame {
         btnConvidado.setUI(new BasicButtonUI());
         
         
-        URL url = this.getClass().getResource("/view/icones/icon.png");
+        URL url = this.getClass().getResource("/view/icones/Icon.png");
         Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
         this.setIconImage(imagemTitulo);
         tfdUsuario.setDocument(new LimiteDigitos(20));
@@ -161,7 +159,7 @@ public class LoginView extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
       
         usuarioM = null;
-        try {
+
             if (tfdUsuario.getText().isEmpty()) {
                 //erro.setText("O nome do usuario deve ser preechido");
                 JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
@@ -173,28 +171,25 @@ public class LoginView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
                 tfdSenha.requestFocus();
             } else {
+                
+            try {
                 usuarioM = usuarioDAO.valida(tfdUsuario.getText(), tfdSenha.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 if(usuarioM == null){
                     JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
                     tfdUsuario.setText("");
                     tfdSenha.setText("");
                     tfdUsuario.requestFocus();
                 }else{
-       
-                    PrincipalView principal = new PrincipalView(usuarioM);
                     this.dispose();
+                    PrincipalView principal = new PrincipalView(usuarioM);
+                    
                     
                 }
                 
             }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
-            tfdUsuario.setText("");
-            tfdSenha.setText("");
-            tfdUsuario.requestFocus();
-            ex.printStackTrace();
-            
-        }
         this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -213,41 +208,37 @@ public class LoginView extends javax.swing.JFrame {
 
     private void tfdSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdSenhaKeyPressed
       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            usuarioM = null;
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            try {
-                if (tfdUsuario.getText().isEmpty()) {
-                   // erro.setText("O nome do usuario deve ser preechido");
-                   // erro.setVisible(true);
-                   JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                    tfdUsuario.requestFocus();
-                } else if (tfdSenha.getText().isEmpty()) {
-                   // erro.setText("A senha deve ser preechida");
-                   // erro.setVisible(true);
-                   JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
-                    tfdSenha.requestFocus();
-                } else {
-                    usuarioM = usuarioDAO.valida(tfdUsuario.getText(), tfdSenha.getText());
-                    if(usuarioM == null){
-                        JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
-                        tfdUsuario.setText("");
-                        tfdSenha.setText("");
-                        tfdUsuario.requestFocus();
-                    }else{
-                        PrincipalView pv = new PrincipalView(usuarioM);
-                        this.dispose();
-                    }
-                    
-                    
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto", "Erro", JOptionPane.ERROR_MESSAGE);
-                tfdUsuario.setText("");
-                tfdSenha.setText("");
+        usuarioM = null;
+
+            if (tfdUsuario.getText().isEmpty()) {
+                //erro.setText("O nome do usuario deve ser preechido");
+                JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
                 tfdUsuario.requestFocus();
 
+            } else if (tfdSenha.getText().isEmpty()) {
+                //erro.setText("A senha deve ser preechido");
+                //erro.setVisible(true);
+                JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                tfdSenha.requestFocus();
+            } else {
+                
+            try {
+                usuarioM = usuarioDAO.valida(tfdUsuario.getText(), tfdSenha.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+                if(usuarioM == null){
+                    JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                    tfdUsuario.setText("");
+                    tfdSenha.setText("");
+                    tfdUsuario.requestFocus();
+                }else{
+                    this.dispose();
+                    PrincipalView principal = new PrincipalView(usuarioM);
+                }
+                
+            }
+        this.dispose();
         }
     }//GEN-LAST:event_tfdSenhaKeyPressed
 
