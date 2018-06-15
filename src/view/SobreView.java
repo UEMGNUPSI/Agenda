@@ -36,7 +36,7 @@ public class SobreView extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Sobre");
         setToolTipText("");
-        setPreferredSize(new java.awt.Dimension(816, 538));
+        setPreferredSize(new java.awt.Dimension(816, 593));
         try {
             setSelected(true);
         } catch (java.beans.PropertyVetoException e1) {
@@ -100,7 +100,7 @@ public class SobreView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel7)
                 .addGap(6, 6, 6)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(6, 6, 6)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

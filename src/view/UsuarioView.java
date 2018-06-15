@@ -107,7 +107,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
         setClosable(true);
         setResizable(true);
         setTitle("Cadastrar Usuário");
-        setPreferredSize(new java.awt.Dimension(1050, 455));
+        setPreferredSize(new java.awt.Dimension(1050, 406));
 
         btnNovo.setText("Novo");
         btnNovo.setPreferredSize(new java.awt.Dimension(75, 23));
@@ -302,7 +302,7 @@ public class UsuarioView extends javax.swing.JInternalFrame {
                             .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
