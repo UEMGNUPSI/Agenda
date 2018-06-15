@@ -181,7 +181,11 @@ public class ComercioView extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Informações", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
         jPanel2.setToolTipText("");
 
-        tfdCelular1.setFormatterFactory(setFormatoCelular());
+        try {
+            tfdCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9.####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel20.setText("* Campos Obrigatórios ");
 
@@ -207,9 +211,17 @@ public class ComercioView extends javax.swing.JInternalFrame {
 
         tfdNome.setEnabled(false);
 
-        tfdTelComercial1.setFormatterFactory(setFormatoTelefone());
+        try {
+            tfdTelComercial1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        tfdTelComercial2.setFormatterFactory(setFormatoTelefone());
+        try {
+            tfdTelComercial2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         taaObservacao.setColumns(20);
         taaObservacao.setRows(5);
@@ -705,7 +717,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+/*
     //Mascara que formata para regularizar como é inserido o telefone
     public static DefaultFormatterFactory setFormatoTelefone(){  
         MaskFormatter comFoco = null;  
@@ -731,7 +743,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
         DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
         return factory;  
     } 
-
+*/
     
     // DECLARAÇÃO DE MÉTODOS DE CONTROLE DE BOTÕES
    public void limparCamposComercio(){

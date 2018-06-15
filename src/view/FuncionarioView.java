@@ -330,6 +330,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfdTelComercial1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfdTelComercial1KeyPressed(evt);
+            }
+        });
         jPanel2.add(tfdTelComercial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 182, 126, -1));
 
         cbxDocente.setText("Docente");
@@ -341,6 +346,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfdTelComercial2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfdTelComercial2KeyPressed(evt);
+            }
+        });
         jPanel2.add(tfdTelComercial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 182, 116, -1));
 
         try {
@@ -797,7 +807,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
     private void tfdCelular1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdCelular1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-            if(tfdCelular1.getText().equals("()"))
             tfdCelular1.setValue("");
         }
     }//GEN-LAST:event_tfdCelular1KeyPressed
@@ -818,10 +827,22 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
     private void tfdTelResidencialKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdTelResidencialKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-            if(tfdCelular1.getText().equals("()"))
-            tfdCelular1.setValue("");
+            if(tfdTelResidencial.getText().equals("()"))
+             tfdTelResidencial.setValue("");
         }
     }//GEN-LAST:event_tfdTelResidencialKeyPressed
+
+    private void tfdTelComercial1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdTelComercial1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            tfdTelComercial1.setValue("");
+        }
+    }//GEN-LAST:event_tfdTelComercial1KeyPressed
+
+    private void tfdTelComercial2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdTelComercial2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            tfdTelComercial2.setValue("");
+        }
+    }//GEN-LAST:event_tfdTelComercial2KeyPressed
    
     //Ao selecionario um setor, é chamada o dao para fazer a busca no banco de dados
     public SetorM pegaSetor(){
