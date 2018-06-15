@@ -85,12 +85,11 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         String dados[][] = new String[listaSetor.size()][3];
             int i = 0;
             for (SetorM setor : listaSetor) {
-                //dados[i][0] = String.valueOf(setor.getId());
+                dados[i][0] = String.valueOf(setor.getId());
                 dados[i][1] = setor.getNome();
-                dados[i][2] = String.valueOf(setor.getId());
                 i++;
             }
-            String tituloColuna[] = {"Setor", "Ramal"};
+            String tituloColuna[] = {"Id","Setor"};
             DefaultTableModel tabelaSetor = new DefaultTableModel();
             tabelaSetor.setDataVector(dados, tituloColuna);
             tbeRelatorio.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -100,8 +99,9 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                     return canEdit[columnIndex];
                 }
             });
-            tbeRelatorio.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tbeRelatorio.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tbeRelatorio.getColumnModel().getColumn(0).setMinWidth(0);
+            tbeRelatorio.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbeRelatorio.getColumnModel().getColumn(0).setPreferredWidth(0);
             DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
             centralizado.setHorizontalAlignment(SwingConstants.CENTER);
             tbeRelatorio.getColumnModel().getColumn(1).setCellRenderer(centralizado);
@@ -648,7 +648,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             doc.add(nomeUniversidade);
             doc.add(nomeRelatorio);
             
-            PdfPTable tabela = new PdfPTable(2);
+            PdfPTable tabela = new PdfPTable(1);
             tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.setWidthPercentage(70f);
 
