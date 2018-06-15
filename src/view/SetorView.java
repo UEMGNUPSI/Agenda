@@ -245,7 +245,7 @@ public class SetorView extends javax.swing.JInternalFrame {
                    limparCamposSetor();
                    tfdSetor.requestFocusInWindow();
                 }catch(SQLException e){
-                   JOptionPane.showMessageDialog(null, "Erro: Não é permitido excluir um setor que esteja vinculado com algum funcionário!\n ");
+                   JOptionPane.showMessageDialog(null, "Erro: Não é permitido excluir um setor que algum funcionário participe!\n ");
                 }
                
                atualizarTabelaSetor();
