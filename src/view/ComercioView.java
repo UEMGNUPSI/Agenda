@@ -641,6 +641,8 @@ public class ComercioView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpaActionPerformed
 
     private void tbeComercioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeComercioMouseClicked
+        prepararSalvareCancelar();
+        desativarCampos();
         limparCamposComercio();
         comercio = new ComercioM();
 
@@ -813,7 +815,7 @@ public class ComercioView extends javax.swing.JInternalFrame {
        btnAlterar.setEnabled(false);
        btnSalvar.setEnabled(true);
        btnCancelar.setEnabled(true);
-       tbeComercio.setEnabled(false);
+       //tbeComercio.setEnabled(false);
        tbeComercio.clearSelection();
    }
    

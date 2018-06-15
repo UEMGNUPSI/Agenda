@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.RollbackException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -243,10 +244,10 @@ public class SetorView extends javax.swing.JInternalFrame {
                    SetorDAO.excluir(setor);
                    limparCamposSetor();
                    tfdSetor.requestFocusInWindow();
-               }
-               catch (SQLException ex){
-                   JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
-               }
+                }catch(SQLException e){
+                   JOptionPane.showMessageDialog(null, "Erro: Não é permitido excluir um setor que esteja vinculado com algum funcionário!\n ");
+                }
+               
                atualizarTabelaSetor();
                prepararExcluir();
            }

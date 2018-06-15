@@ -569,6 +569,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     
     //Pega valores das colunas e transcreve para os campos de texto
     private void tbeFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbeFuncionarioMouseClicked
+        prepararSalvareCancelar();
+        desativarCampos();
         limparCamposFuncionario();
         funcionario = new FuncionarioM();
 
@@ -723,7 +725,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
     prepararAlterar();
     ativarCampos();
-    tfdNome.requestFocusInWindow(); 
+    tfdNome.requestFocusInWindow();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void tfdbuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfdbuscaKeyPressed
@@ -948,13 +950,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
    }
    
    public void prepararAlterar(){
+       //tbeFuncionario.setEnabled(false);
+       tbeFuncionario.clearSelection();
        btnNovo.setEnabled(false);
        btnExcluir.setEnabled(false);
        btnAlterar.setEnabled(false);
        btnSalvar.setEnabled(true);
-       btnCancelar.setEnabled(true);
-       tbeFuncionario.setEnabled(false);
-       tbeFuncionario.clearSelection();
+       btnCancelar.setEnabled(true);   
    }
    
    public void prepararExcluir(){
